@@ -1,1 +1,256 @@
-/* You can add global styles to this file, and also import other style files */
+/* ========================
+   Fuentes importadas
+   ======================== */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* ========================
+   Variables de color
+   ======================== */
+:root {
+  /* Colores primarios */
+  --color-rojo-profund: #8B0000;
+  --color-rojo-gris:   #7F3A38;
+  --color-marron-tost:  #5A2D0C;
+  --color-verde-bos:    #2E4C2F;
+
+  /* Colores de acento */
+  --color-dorado:       #D4AF37;
+  --color-morado-real:  #6A1B9A;
+
+  /* Neutros / Fondos */
+  --color-pergamino:    #FFF8DC;
+  --color-negro-carb:   #000000;
+  --color-gris-piedra:  #E0D8C3;
+
+  /* Complementarios */
+  --color-celeste:      #87CEEB;
+  --color-salvia:       #A3B18A;
+}
+
+/* ========================
+   Reseteo y box-sizing
+   ======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================
+   Estilos globales (body)
+   ======================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cardo', serif;
+  background: url('/assets/img/scroll-parchment.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #3b1f0f;
+}
+
+/* ========================
+   Enlaces (a) y hover
+   ======================== */
+a {
+  color: var(--color-dorado);
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px var(--color-dorado);
+}
+
+/* ========================
+   Encabezados (h1-h4)
+   ======================== */
+h1, h2, h3, h4 {
+  font-family: 'Uncial Antiqua', cursive;
+  color: var(--color-marron-tost);
+  text-shadow: 1px 1px #ffe0a8;
+  margin-bottom: 1rem;
+}
+
+/* ========================
+   Contenedor principal (.container)
+   ======================== */
+.container {
+  background: rgba(255, 248, 220, 0.94); /* pergamino */
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+/* ========================
+   Botones principales (button)
+   ======================== */
+button,
+.btn-primary {
+  background: var(--color-rojo-profund);
+  color: var(--color-pergamino);
+  padding: 10px 20px;
+  border: 2px solid var(--color-dorado);
+  border-radius: 10px;
+  font-family: 'MedievalSharp', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover,
+.btn-primary:hover {
+  background: var(--color-rojo-gris);
+  transform: scale(1.05);
+  box-shadow: 0 0 8px var(--color-dorado);
+}
+
+/* ========================
+   Botones secundarios (.btn-secondary)
+   ======================== */
+.btn-secondary {
+  background-color: var(--color-marron-tost);
+  color: var(--color-pergamino);
+  border: 2px solid var(--color-verde-bos);
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  padding: 8px 16px;
+  transition: all 0.2s ease-in-out;
+}
+.btn-secondary:hover {
+  background-color: var(--color-verde-bos);
+  box-shadow: 0 0 6px var(--color-morado-real);
+}
+
+/* ========================
+   Tarjetas / Contenedores (.card)
+   ======================== */
+.card {
+  background-color: var(--color-pergamino);
+  border: 3px double var(--color-marron-tost);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================
+   Menú lateral (.sidebar)
+   ======================== */
+.sidebar {
+  background-color: var(--color-marron-tost);
+  color: var(--color-pergamino);
+  font-family: 'Lato', sans-serif;
+}
+.sidebar a {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+.sidebar a.active {
+  background-color: var(--color-verde-bos);
+  border-left: 4px solid var(--color-dorado);
+}
+
+/* ========================
+   Formularios (input, textarea, select)
+   ======================== */
+input,
+textarea,
+select {
+  font-family: 'Lato', sans-serif;
+  color: var(--color-negro-carb);
+  background-color: var(--color-pergamino);
+  border: 1px solid var(--color-marron-tost);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-celeste);
+}
+
+/* ========================
+   Títulos de sección (.section-title)
+   ======================== */
+.section-title {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--color-morado-real);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-dorado);
+  padding-bottom: 0.25rem;
+}
+
+/* ========================
+   Tooltips personalizados (.tooltip-text)
+   ======================== */
+.tooltip-text {
+  font-family: 'Uncial Antiqua', cursive;
+  color: var(--color-verde-bos);
+  background-color: var(--color-pergamino);
+  border: 1px solid var(--color-marron-tost);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.875rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+/* ========================
+   Footer (footer)
+   ======================== */
+footer {
+  background-color: var(--color-marron-tost);
+  color: var(--color-pergamino);
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ========================
+   Clases de utilidad
+   ======================== */
+.text-golden {
+  color: var(--color-dorado);
+}
+.bg-wood {
+  background-color: var(--color-marron-tost);
+}
+.bg-forest {
+  background-color: var(--color-verde-bos);
+}
+
+/* ========================
+   Header específico (qué ya tenías)
+   ======================== */
+.header-container {
+  background-image: url('/assets/img/header.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ========================
+   Fondo de HomeComponent (.home-background)
+   ======================== */
+.home-background {
+  display: block;
+  min-height: 100vh;
+  background-image: url('/assets/img/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+.home-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}

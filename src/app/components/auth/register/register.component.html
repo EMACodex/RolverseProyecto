@@ -1,0 +1,54 @@
+
+<div class="contenedor">
+  <div class="register-container">
+    <h2 class="title">Registro</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <div class="form-group">
+        <label for="name" class="label">Nombre</label>
+        <input id="name" formControlName="name" type="text" class="input-field" />
+        @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+          <div class="error">
+            El nombre es requerido y debe tener al menos 3 caracteres.
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="label">Correo electrónico</label>
+        <input id="email" formControlName="email" type="email" class="input-field" />
+        @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+          <div class="error">
+            El correo electrónico es requerido y debe ser válido.
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="label">Contraseña</label>
+        <input id="password" formControlName="password" type="password" class="input-field" />
+        @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+          <div class="error">
+            La contraseña es requerida y debe tener al menos 6 caracteres.
+          </div>
+        }
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid" class="btn-submit">Registrarse</button>
+
+      @if (errorMessage) {
+        <div class="error-message">
+          {{ errorMessage }}
+        </div>
+      }
+      @if (successMessage) {
+        <div class="success-message">
+          {{ successMessage }}
+        </div>
+      }
+
+      <div class="links">
+        <a routerLink="/login" class="link">¿Tienes una cuenta? Inicia Sesión</a>
+      </div>
+    </form>
+  </div>
+</div>

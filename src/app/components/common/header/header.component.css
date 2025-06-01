@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+
+
+.header-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 32px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  border-bottom: 5px solid #d4af37;
+}
+
+/* LOGO IZQUIERDA */
+.main-logo-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.main-logo {
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+/* NAV CENTRADO VISUALMENTE */
+.center-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* para no interferir con clics */
+  z-index: 1;
+}
+
+.logo-nav {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto; /* permite clics dentro de nav */
+}
+
+/* ICONOS DE JUEGOS */
+.logo-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  border: 2px solid transparent;
+  border-radius: 6px;
+}
+
+.logo-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.game-logo {
+  height: 38px;
+  width: auto;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+/* TOOLTIP */
+.tooltip-text {
+  visibility: hidden;
+  width: auto;
+  background: url('/assets/img/parchment-tooltip.png') no-repeat center center;
+  background-size: cover;
+  color: #4b1e1e;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 14px;
+  position: absolute;
+  bottom: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  white-space: nowrap;
+  box-shadow: 0 0 10px #000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* BOTÓN DERECHA */
+.login-button-wrapper {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.rpg-login-button {
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(#b08c4f, #7c5e2b);
+  border: 3px solid #4b2e15;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.1s ease-in-out;
+}
+
+.rpg-login-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(#d1a864, #8b6a36);
+}
