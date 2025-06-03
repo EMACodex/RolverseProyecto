@@ -6,15 +6,19 @@
       <div class="form-group">
         <label for="email" class="label">Email</label>
         <input id="email" type="email" formControlName="email" required class="input-field" />
-        <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-          <p>El email es obligatorio y debe ser válido.</p>
-        </div>
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+          <div class="error" >
+            <p>El email es obligatorio y debe ser válido.</p>
+          </div>
+        }
 
         <label for="password" class="label">Password</label>
         <input id="password" type="password" formControlName="password" required class="input-field" />
-        <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-          <p>La contraseña es obligatoria.</p>
-        </div>
+        @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
+          <div class="error">
+            <p>La contraseña es obligatoria.</p>
+          </div>
+        }
 
         <button type="submit" [disabled]="loginForm.invalid" class="btn-submit">Login</button>
 
@@ -24,7 +28,7 @@
 
         <div class="links">
           <a routerLink="/register" class="link">¿No tienes cuenta? Regístrate</a>
-          <a routerLink="/forgot-password" class="link">¿Olvidaste tu contraseña?</a>
+          <a routerLink="/sendRecover" class="link">¿Olvidaste tu contraseña?</a>
         </div>
       </div>
     </form>

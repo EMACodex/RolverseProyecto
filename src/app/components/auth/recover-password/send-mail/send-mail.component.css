@@ -1,0 +1,111 @@
+.send-mail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/assets/img/fondo 3.jpg');
+  background-size: cover;
+}
+
+.send-mail-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  background-color: #1e1e2fab;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.send-mail-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #f0a500;
+  text-shadow: 0 0 8px #f0a500;
+}
+
+.send-mail-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.send-mail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.send-mail-logo {
+  width: 120px;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.send-mail-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f0a500;
+}
+
+.send-mail-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.send-mail-input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem; /* espacio a la derecha para el icono */
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1.5px solid #555;
+  background-color: #2a2a3d;
+  color: #eee;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.send-mail-input:focus {
+  outline: none;
+  border-color: #f0a500;
+  box-shadow: 0 0 8px #f0a500aa;
+}
+
+.send-mail-icon {
+  position: absolute;
+  right: 10px;
+  font-size: 1.25rem;
+  pointer-events: none;
+  color: #f0a500;
+}
+
+.send-mail-button {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: #f0a500;
+  border: none;
+  border-radius: 5px;
+  color: #1e1e2f;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.send-mail-button:hover {
+  background-color: #d18f00;
+}
+
+.send-mail-error {
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}

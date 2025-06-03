@@ -1,0 +1,39 @@
+<div class="reset-pass-wrapper">
+  <div class="reset-pass-container">
+    <h2 class="reset-pass-title">Recuperar Contraseña</h2>
+
+    <form [formGroup]="formGroup" class="reset-pass-form">
+      <div class="reset-pass-group">
+        <label for="password" class="reset-pass-label">Contraseña</label>
+        <div class="reset-pass-input-wrapper">
+          <input id="password" [type]="!visible ? 'password' : 'text'" formControlName="password" class="reset-pass-input" />
+          <mat-icon class="reset-pass-icon" (click)="visible = !visible">
+            {{ visible ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+        </div>
+        @if (formGroup.get('password')?.hasError('passwordMismatch') && !formGroup.get('password')?.hasError('required')) {
+          <div class="reset-pass-error">La contraseña no cumple los requisitos.</div>
+        }
+        @if (formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched) {
+          <div class="reset-pass-error">La contraseña es obligatoria.</div>
+        }
+
+        <label for="passwordRep" class="reset-pass-label">Repite la contraseña</label>
+        <div class="reset-pass-input-wrapper">
+          <input id="passwordRep" [type]="!visibleRep ? 'password' : 'text'" formControlName="passwordRep" class="reset-pass-input" />
+          <mat-icon class="reset-pass-icon" (click)="visibleRep = !visibleRep">
+            {{ visibleRep ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+        </div>
+        @if (formGroup.get('passwordRep')?.hasError('passwordMismatch') && !formGroup.get('passwordRep')?.hasError('required')) {
+          <div class="reset-pass-error">La contraseña no cumple los requisitos.</div>
+        }
+        @if (formGroup.get('passwordRep')?.hasError('required') && formGroup.get('passwordRep')?.touched) {
+          <div class="reset-pass-error">La contraseña es obligatoria.</div>
+        }
+
+        <button type="button" class="reset-pass-button" (click)="resetPass()">Enviar recuperación</button>
+      </div>
+    </form>
+  </div>
+</div>

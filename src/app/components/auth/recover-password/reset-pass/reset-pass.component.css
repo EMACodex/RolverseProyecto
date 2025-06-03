@@ -1,0 +1,112 @@
+.reset-pass-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/assets/img/fondo 3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.reset-pass-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  background-color: #1e1e2fab;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.reset-pass-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #f0a500;
+  text-shadow: 0 0 8px #f0a500;
+}
+
+.reset-pass-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.reset-pass-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.reset-pass-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f0a500;
+}
+
+.reset-pass-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.reset-pass-input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1.5px solid #555;
+  background-color: #2a2a3d;
+  color: #eee;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.reset-pass-input:focus {
+  outline: none;
+  border-color: #f0a500;
+  box-shadow: 0 0 8px #f0a500aa;
+}
+
+.reset-pass-icon {
+  position: absolute;
+  right: 10px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #f0a500;
+  transition: color 0.3s ease;
+}
+
+.reset-pass-icon:hover {
+  color: #d18f00;
+}
+
+.reset-pass-button {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: #f0a500;
+  border: none;
+  border-radius: 5px;
+  color: #1e1e2f;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.reset-pass-button:hover {
+  background-color: #d18f00;
+}
+
+.reset-pass-error {
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}

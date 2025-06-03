@@ -1,0 +1,21 @@
+<div class="send-mail-wrapper">
+  <div class="send-mail-container">
+    <h2 class="send-mail-title">Recuperar Contraseña</h2>
+
+    <form [formGroup]="formGroup" class="send-mail-form">
+      <div class="send-mail-group">
+        <label for="email" class="send-mail-label">Email</label>
+        <div class="send-mail-input-wrapper">
+          <input id="email" type="email" formControlName="email" class="send-mail-input" />
+          <mat-icon class="send-mail-icon">mail</mat-icon>
+        </div>
+
+        @if (formGroup.get('email')?.invalid && formGroup.get('email')?.touched) {
+          <div class="send-mail-error">El email es obligatorio y debe ser válido.</div>
+        }
+
+        <button type="button" class="send-mail-button" (click)="enviarRecuperacion()">Enviar recuperación</button>
+      </div>
+    </form>
+  </div>
+</div>
