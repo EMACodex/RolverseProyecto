@@ -31,12 +31,11 @@
 }
 
 /* ========================
-   Reseteo y box-sizing
+   Reseteo
    ======================== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 /* ========================
@@ -251,6 +250,10 @@ footer {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  /* 0.15 = muy leve; prueba valores entre 0.0 y 0.2 para algo casi transparente */
+  background: rgba(0, 0, 0, 0.15); 
   pointer-events: none;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
