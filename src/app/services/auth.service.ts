@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RUTA_API } from '../../../environment';
-import { LoginCredentials, Response, RegisterCredentials } from '../interfaces/auth';
+import { LoginCredentials, Response, RegisterCredentials } from '../interfaces/auth.interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 

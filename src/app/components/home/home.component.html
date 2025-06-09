@@ -1,3 +1,15 @@
 <div class="home-background">
+  <div class="carousel-container">
+    <!-- Flecha izquierda -->
+    <button class="nav-arrow left-arrow" (click)="prev()">‹</button>
 
+    <!-- Usando @for en lugar de *ngFor -->
+    @for(slide of slides; track $index){
+      <div class="carousel-item" [ngClass]="getPositionClass(slide.id)">
+        <img [src]="slide.img" alt="Banner {{ slide.id }}" />
+      </div>
+    }
+    <!-- Flecha derecha -->
+    <button class="nav-arrow right-arrow" (click)="next()">›</button>
+  </div>
 </div>

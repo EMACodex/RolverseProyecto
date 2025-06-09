@@ -1,1 +1,11 @@
-<p>footer works!</p>
+@if (!isSessionRoute) {
+  <footer class="footer-container">
+
+    <div class="footer-links">
+      <a routerLink="/about">Acerca de</a> |
+      <a routerLink="/contact">Contacto</a>
+      <!-- más enlaces, redes sociales, etc. -->
+    </div>
+    <p>© 2025 Rolverse. Todos los derechos reservados.</p>
+  </footer>
+}

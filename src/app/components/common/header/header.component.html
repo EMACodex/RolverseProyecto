@@ -54,11 +54,16 @@
 
     <div class="login-button-wrapper">
       @if (isLoggedIn()) {
-        <button class="rpg-login-button" (click)="logout()">
-          ⚔️ Cerrar Sesión
-        </button>
+        <div class="auth-buttons">
+          <button class="rpg-login-button" (click)="logout()">
+            ⚔️ Cerrar Sesión
+          </button>
+          <button class="rpg-login-button" routerLink="/profile">
+            👤 Perfil
+          </button>
+        </div>
       }
-      @else{
+      @else {
         <button class="rpg-login-button" routerLink="/login">
           🛡️ Iniciar Sesión
         </button>

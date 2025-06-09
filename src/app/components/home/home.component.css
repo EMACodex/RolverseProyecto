@@ -1,4 +1,111 @@
-.home-content {
-  padding: 24px;
+/* 1) Fondo de la Home (puedes ajustarlo si quieres otro efecto o transparencia) */
+.home-background {
+  min-height: 100vh;
+  background: url('/assets/img/fondo.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
+/* 2) Contenedor general del carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;       /* Ancho total del área del carrusel */
+  height: 350px;          /* Alto fijo: ajusta a tu gusto */
+  margin: 0 auto;         /* Centrar horizontalmente */
+  margin-top: 40px;       /* Separación desde el header */
+  overflow: visible;      /* Para que se vean los elementos “left/right/back” fuera del contenedor */
+}
+
+/* 3) Cada elemento del carrusel (imagen envuelta) */
+.carousel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  opacity: 0;
+  width: 400px;       /* Base para la imagen principal; luego lo escalamos */
+  height: 250px;      /* Base para la imagen principal; luego lo escalamos */
+}
+
+/* 4) Banner central (clase “center”):
+     - escala 1 (100%)
+     - centrado (translateX(-50%) translateY(-50%))
+     - mayor z-index, para que quede encima de todos */
+.carousel-item.center {
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 4;
+  opacity: 1;
+}
+
+/* 5) Banner a la izquierda (clase “left”):
+     - escala 0.7
+     - desplazado a la izquierda (-200px) y centrado en Y
+     - z-index medio */
+.carousel-item.left {
+  transform: translate(calc(-50% - 200px), -50%) scale(0.7);
+  z-index: 3;
+  opacity: 1;
+}
+
+/* 6) Banner a la derecha (clase “right”):
+     - escala 0.7
+     - desplazado a la derecha (+200px)
+     - z-index medio */
+.carousel-item.right {
+  transform: translate(calc(-50% + 200px), -50%) scale(0.7);
+  z-index: 3;
+  opacity: 1;
+}
+
+/* 7) Banner “detrás” (clase “back”):
+     - escala 0.5
+     - centrado verdaderamente (sin avanzar X)
+     - z-index más bajo
+     - opacidad reducida */
+.carousel-item.back {
+  transform: translate(-50%, -50%) scale(0.5);
+  z-index: 2;
+  opacity: 0.7;
+}
+
+/* 8) Estilo de la imagen interna: siempre 100% del contenedor .carousel-item */
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 9) Flechas de navegación */
+.nav-arrow {
+  position: absolute;
+  top: calc(50% - 20px);  /* Centrar verticalmente (si el alto de botón es ~40px) */
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transition: background-color 0.3s ease;
+}
+
+/* Flecha izquierda: alineada a la izquierda fuera del centro */
+.left-arrow {
+  left: -60px;  /* Ajusta el valor si quieres que esté más afuera */
+}
+
+/* Flecha derecha: alineada a la derecha fuera del centro */
+.right-arrow {
+  right: -60px;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}

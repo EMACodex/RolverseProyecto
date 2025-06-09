@@ -6,6 +6,7 @@ import { authGuard } from './guards/auth.guard';
 import { notAuthGuard } from './guards/not-auth.guard';
 import { SendMailComponent } from './components/auth/recover-password/send-mail/send-mail.component';
 import { ResetPassComponent } from './components/auth/recover-password/reset-pass/reset-pass.component';
+import { PersonalComponent } from './components/profile/personal/personal.component';
 
 
 export const routes: Routes = [
@@ -32,6 +33,11 @@ export const routes: Routes = [
     path: 'recover/:token',
     component: ResetPassComponent,
     canActivate: [notAuthGuard]
+  },
+  {
+    path: 'profile',
+    component: PersonalComponent,
+    canActivate: [authGuard]
   },
   {
     path: '**',
