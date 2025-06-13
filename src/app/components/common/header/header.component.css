@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
 
 .header-container {
-  position: sticky;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -126,4 +126,68 @@
 .auth-buttons {
   display: flex;
   gap: 12px;
+}
+
+::ng-deep .mat-menu-panel.custom-menu {
+  background-color: var(--color-pergamino) !important;
+  border: 3px double var(--color-marron-tost);
+  border-radius: 10px;
+  min-width: 200px;
+  padding: 8px 0; /* separa verticalmente los items */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden !important; /* 🔥 elimina barra de scroll */
+}
+
+::ng-deep .mat-menu-content {
+  padding: 0 12px; /* 🔥 margen lateral interno */
+  overflow: hidden !important;
+}
+
+::ng-deep .mat-menu-item {
+  font-family: 'Cinzel', serif;
+  color: var(--color-marron-tost);
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 10px 12px;
+  transition: background-color 0.2s ease;
+}
+
+::ng-deep .mat-menu-item:hover {
+  background-color: var(--color-marron-tost);
+  color: var(--color-pergamino);
+}
+
+::ng-deep .pergamino-menu {
+  background-image: url('/assets/img/scroll-parchment.jpg'); /* tu fondo pergamino */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--color-pergamino) !important;
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  padding: 10px 0;
+  overflow: hidden !important;
+  min-width: 220px;
+  font-family: 'Cinzel', serif;
+}
+
+::ng-deep .pergamino-menu .mat-menu-content {
+  padding: 0 16px;
+  overflow: hidden !important;
+}
+
+::ng-deep .pergamino-menu .mat-menu-item {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-marron-tost);
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+::ng-deep .pergamino-menu .mat-menu-item:hover {
+  background-color: var(--color-marron-tost);
+  color: var(--color-pergamino);
 }

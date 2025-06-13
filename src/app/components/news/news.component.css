@@ -1,0 +1,68 @@
+.news-card {
+  margin-bottom: 2.5rem;
+  background-color: var(--color-pergamino);
+  border: 3px double var(--color-marron-tost);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+}
+
+.news-title {
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.news-title a {
+  color: var(--color-rojo-profund);
+}
+
+.news-meta {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-marron-tost);
+  margin-bottom: 1rem;
+}
+
+.news-content {
+  display: flex;
+  gap: 1.5rem; 
+  align-items: flex-start;
+}
+
+.news-image {
+  width: 160px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--color-rojo-profund);
+}
+
+.news-excerpt {
+  font-family: 'Cardo', serif;
+  font-size: 1rem;
+  color: #3b1f0f;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.pagination-controls button {
+  background-color: #d4af37;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

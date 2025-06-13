@@ -5,16 +5,22 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="register-form">
       <div class="form-group">
         <label for="email" class="label">Email</label>
-        <input id="email" type="email" formControlName="email" required class="input-field" />
+        <div class="input-icon-container">
+          <input id="email" type="email" formControlName="email" required class="input-field" />
+          <i class="fas fa-envelope input-icon"></i> <!-- Icono de correo electrónico a la derecha -->
+        </div>
         @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
-          <div class="error" >
+          <div class="error">
             <p>El email es obligatorio y debe ser válido.</p>
           </div>
         }
 
         <label for="password" class="label">Password</label>
-        <input id="password" type="password" formControlName="password" required class="input-field" />
-        @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
+        <div class="input-icon-container">
+          <input id="password" type="password" formControlName="password" required class="input-field" />
+          <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
+        </div>
+        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
           <div class="error">
             <p>La contraseña es obligatoria.</p>
           </div>
@@ -27,12 +33,10 @@
         </div>
 
         <div class="links">
-          <a routerLink="/register" class="link">¿No tienes cuenta? Regístrate</a>
-          <a routerLink="/sendRecover" class="link">¿Olvidaste tu contraseña?</a>
+          <a routerLink="/session/register" class="link">¿No tienes cuenta? Regístrate</a>
+          <a routerLink="/session/sendRecover" class="link">¿Olvidaste tu contraseña?</a>
         </div>
       </div>
     </form>
   </div>
 </div>
-
-

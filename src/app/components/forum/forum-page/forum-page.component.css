@@ -1,0 +1,46 @@
+.contenedor{
+  min-height: 100vh;
+  width: 100%;
+  background: url('/assets/img/fondo.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  margin-top: 2.5%;
+}
+
+.h1 {
+  text-align: center !important;
+  margin-top: 20px;
+}
+
+.admin-actions {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.create-forum {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.create-forum:hover {
+  background-color: #0056b3;
+}
+
+.transparent-backdrop {
+  background: transparent !important;
+}

@@ -7,6 +7,7 @@ import { notAuthGuard } from './guards/not-auth.guard';
 import { SendMailComponent } from './components/auth/recover-password/send-mail/send-mail.component';
 import { ResetPassComponent } from './components/auth/recover-password/reset-pass/reset-pass.component';
 import { PersonalComponent } from './components/profile/personal/personal.component';
+import { ForumPageComponent } from './components/forum/forum-page/forum-page.component';
 
 
 export const routes: Routes = [
@@ -14,23 +15,23 @@ export const routes: Routes = [
     path: '',
     component: HomeComponent
   },
-    {
-    path: 'login',
+  {
+    path: 'session/login',
     component: LoginComponent,
     canActivate: [notAuthGuard]
   },
   {
-    path: 'register',
+    path: 'session/register',
     component: RegisterComponent,
     canActivate: [notAuthGuard]
   },
   {
-    path: 'sendRecover',
+    path: 'session/sendRecover',
     component: SendMailComponent,
     canActivate: [notAuthGuard]
   },
   {
-    path: 'recover/:token',
+    path: 'session/recover/:token',
     component: ResetPassComponent,
     canActivate: [notAuthGuard]
   },
@@ -38,6 +39,15 @@ export const routes: Routes = [
     path: 'profile',
     component: PersonalComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: 'noticias/agregar',
+    loadComponent: () => import('./components/news/add-new/add-new.component').then(m => m.AddNewComponent),
+    canActivate: [authGuard] 
+  },
+  {    
+    path: 'forum',
+    component: ForumPageComponent
   },
   {
     path: '**',

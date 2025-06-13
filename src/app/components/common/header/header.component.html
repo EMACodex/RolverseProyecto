@@ -25,8 +25,8 @@
         </div>
 
         <div class="logo-wrapper">
-          <img src="assets/img/warhammer.png" alt="Warhammer" class="game-logo" />
-          <span class="tooltip-text">Warhammer</span>
+          <img src="assets/img/warhammer 40000.png" alt="Warhammer" class="game-logo" />
+          <span class="tooltip-text">Warhammer 40000</span>
         </div>
 
         <div class="logo-wrapper">
@@ -47,6 +47,14 @@
         <div class="logo-wrapper">
           <img src="assets/img/starwars.png" alt="Star Wars" class="game-logo" />
           <span class="tooltip-text">Star Wars</span>
+        </div>   
+
+
+        <div class="logo-wrapper">
+          <a routerLink="/forum">
+            <img src="assets/img/forum.png" alt="Foro" class="game-logo" />
+          </a>
+          <span class="tooltip-text">Foro</span>
         </div>
 
       </nav>
@@ -55,16 +63,22 @@
     <div class="login-button-wrapper">
       @if (isLoggedIn()) {
         <div class="auth-buttons">
-          <button class="rpg-login-button" (click)="logout()">
-            ⚔️ Cerrar Sesión
+          <button class="rpg-login-button" [matMenuTriggerFor]="userMenu">
+            Mi cuenta ▼
           </button>
-          <button class="rpg-login-button" routerLink="/profile">
-            👤 Perfil
-          </button>
+
+          <mat-menu #userMenu="matMenu"  class="pergamino-menu">
+            @if (isAdmin) {
+              <button mat-menu-item [routerLink]="'/noticias/agregar'">📝 Agregar Noticia</button>
+            }
+            <button mat-menu-item (click)="logout()">⚔️ Cerrar Sesión</button>
+            <button mat-menu-item [routerLink]="'/profile'">👤 Perfil</button>
+          </mat-menu>
+
         </div>
       }
       @else {
-        <button class="rpg-login-button" routerLink="/login">
+        <button class="rpg-login-button" routerLink="/session/login">
           🛡️ Iniciar Sesión
         </button>
       }

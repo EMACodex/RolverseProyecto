@@ -1,4 +1,4 @@
-.contenedor{
+.contenedor {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,6 @@
   background-image: url('/assets/img/fondo 3.jpg');
   background-size: cover;
 }
-
 
 .register-container {
   min-width: 20%;
@@ -135,4 +134,49 @@ label {
 .links .link:hover {
   color: #d5b1f2;
   text-shadow: 1px 1px 3px #8c66a6;
+}
+
+.input-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  padding-right: 30px; /* Espacio para el icono en el lado derecho */
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px; /* Coloca el icono en el lado derecho */
+  font-size: 16px;
+  color: #ddd; /* Color de los iconos */
+}
+
+
+.error {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  font-weight: 600;
+  text-shadow: 1px 0 1px #5a0000;
+}
+
+/* Resto de los estilos que ya tienes definidos */
+
+.error-message {
+  margin-top: 1rem;
+  color: #ff4d4d;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 1px 1px 2px #7a0000;
+}
+
+.success-message {
+  margin-top: 1rem;
+  color: #88e88b;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 1px 1px 2px #1f4d1f;
 }

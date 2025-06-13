@@ -1,0 +1,27 @@
+  <div class="create-container">
+    <h2 class="title">Crear nuevo foro</h2>
+
+    <form [formGroup]="forumForm" (ngSubmit)="onSubmit()" class="register-form">
+      <div class="form-group">
+        <label for="title" class="label">Título</label>
+        <div class="input-icon-container">
+          <input id="title" formControlName="title" class="input-field" placeholder="Título del foro" />
+          <i class="fas fa-heading input-icon"></i>
+        </div>
+        @if (title?.invalid && title?.touched) {
+          <div class="error">El título es obligatorio</div>
+        }
+
+        <label for="description" class="label">Descripción</label>
+        <div class="input-icon-container">
+          <textarea id="description" formControlName="description" class="input-field" placeholder="Descripción del foro"></textarea>
+          <i class="fas fa-align-left input-icon"></i>
+        </div>
+        @if (description?.invalid && description?.touched) {
+          <div class="error">La descripción es obligatoria</div>
+        }
+
+        <button type="submit" [disabled]="forumForm.invalid" class="btn-submit">Crear foro</button>
+      </div>
+    </form>
+  </div>

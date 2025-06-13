@@ -1,0 +1,81 @@
+<div class="container">
+  <h2 class="section-title">Últimas noticias del Mundo de Rol</h2>
+
+  @if (posts.length > 0) { @for (post of paginatedPosts; track post.id) {
+  <div class="news-card card">
+    <!-- Título -->
+    @if (isWordPressPost(post)) {
+    <h3 class="news-title">
+      <a [href]="post.link" target="_blank" rel="noopener noreferrer">
+        {{ post.title.rendered }}
+      </a>
+    </h3>
+    } @else {
+    <h3 class="news-title">{{ post.title }}</h3>
+    }
+
+    <!-- Meta -->
+    <div class="news-meta">
+      @if (isWordPressPost(post)) {
+      <span class="news-category"
+        >Publicado por: {{ post._embedded?.author?.[0]?.name }}</span
+      >
+      |
+      <span class="news-date">{{ post.date | date : "longDate" }}</span>
+      } @else {
+      <span class="news-category">Publicado por: Administrador</span> |
+      <span class="news-date">{{ post.created_at | date : "longDate" }}</span>
+      }
+    </div>
+
+    <!-- Contenido -->
+    <div class="news-content">
+      @if ( isWordPressPost(post) && post._embedded &&
+      post._embedded['wp:featuredmedia'] &&
+      post._embedded['wp:featuredmedia'][0] &&
+      post._embedded['wp:featuredmedia'][0].source_url ) {
+      <img
+        [src]="post._embedded['wp:featuredmedia'][0].source_url"
+        alt="Imagen destacada"
+        class="news-image"
+      />
+      } @else { @if (isInternalNews(post) && post.image_path) {
+      <img
+        [src]="'http://localhost:3000' + post.image_path"
+        alt="Imagen de noticia interna"
+        class="news-image"
+      />
+      } }
+
+      <!-- Extracto o resumen -->
+      @if (isWordPressPost(post)) {
+      <div class="news-excerpt" [innerHTML]="post.excerpt.rendered"></div>
+      } @else {
+      <div class="news-excerpt">{{ post.summary }}</div>
+      }
+    </div>
+  </div>
+  }
+
+  <div class="pagination-controls">
+    <button
+      (click)="currentPage = currentPage - 1"
+      [disabled]="currentPage === 1"
+    >
+      Anterior
+    </button>
+
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+
+    <button
+      (click)="currentPage = currentPage + 1"
+      [disabled]="currentPage === totalPages"
+    >
+      Siguiente
+    </button>
+  </div>
+
+  } @else {
+  <p>Cargando noticias...</p>
+  }
+</div>

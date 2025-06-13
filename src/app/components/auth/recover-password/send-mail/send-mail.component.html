@@ -7,7 +7,7 @@
         <label for="email" class="send-mail-label">Email</label>
         <div class="send-mail-input-wrapper">
           <input id="email" type="email" formControlName="email" class="send-mail-input" />
-          <mat-icon class="send-mail-icon">mail</mat-icon>
+          <i class="fas fa-envelope input-icon"></i> <!-- Icono de correo, ahora a la derecha -->
         </div>
 
         @if (formGroup.get('email')?.invalid && formGroup.get('email')?.touched) {

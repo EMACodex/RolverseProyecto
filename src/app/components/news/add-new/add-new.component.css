@@ -1,0 +1,97 @@
+.news-form-container {
+  background: rgba(255, 248, 220, 0.94);
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  margin-top: 0 !important;
+  padding-top: 40px !important;
+  padding: 2rem;
+  margin: 40px auto 4rem auto;
+  max-width: 900px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.news-form-container h2 {
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 2rem;
+  color: var(--color-marron-tost);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-background {
+  display: block;
+  min-height: 100vh;
+  background-image: url('/assets/img/addnew.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* Labels */
+label {
+  font-family: 'Uncial Antiqua', cursive;
+  color: var(--color-marron-tost);
+  font-size: 1.1rem;
+  display: block;
+  margin: 1.2rem 0 0.4rem;
+}
+
+/* Inputs, textarea, archivo */
+input[type="text"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  background-color: var(--color-pergamino);
+  border: 1px solid var(--color-marron-tost);
+  border-radius: 8px;
+}
+
+/* Textarea alto y resize */
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Imagen preview */
+.image-preview {
+  display: block;
+  margin: 1rem 0;
+  max-width: 100%;
+  border: 2px solid var(--color-marron-tost);
+  border-radius: 8px;
+}
+
+/* Error */
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Botón publicar estilo rpg-login-button */
+.rpg-login-button {
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(#b08c4f, #7c5e2b);
+  border: 3px solid #4b2e15;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.1s ease-in-out;
+  margin-top: 2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rpg-login-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(#d1a864, #8b6a36);
+}

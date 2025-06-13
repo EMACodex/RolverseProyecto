@@ -1,4 +1,4 @@
-.contenedor{
+.contenedor {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@
   padding: 2rem 2.5rem;
   background-color: #1e1e2fab;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   color: #e0e0e0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -43,7 +43,6 @@
   font-weight: 600;
   font-size: 1rem;
   color: #f0a500;
-
 }
 
 .input-field {
@@ -54,7 +53,6 @@
   background-color: #2a2a3d;
   color: #eee;
   transition: border-color 0.3s ease;
-
 }
 
 .input-field:focus {
@@ -109,4 +107,35 @@
 .link:hover {
   color: #d18f00;
   text-decoration: underline;
+}
+
+.input-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  padding-right: 30px; /* Espacio para el icono en el lado derecho */
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px; /* Coloca el icono en el lado derecho */
+  font-size: 16px;
+  color: #666;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.btn-submit {
+  margin-top: 20px;
+}
+
+.links {
+  margin-top: 10px;
 }

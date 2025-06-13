@@ -1,21 +1,30 @@
-// src/app/home/home.component.ts
-
 import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NewsComponent } from '../news/news.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatTabsModule, NewsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  private startX: number = 0;
+  private dragging: boolean = false;
+  private currentX: number = 0;
+  private moved = false;
+
+
+
   // Lista de los cuatro banners. Ajusta las rutas a las tuyas dentro de src/assets/img/
   slides: { id:number, img:string}[] = [
-    { id: 0, img: 'assets/img/banner1.jpg' },
-    { id: 1, img: 'assets/img/banner2.jpg' },
-    { id: 2, img: 'assets/img/banner3.jpg' },
-    { id: 3, img: 'assets/img/banner4.jpg' }
+    { id: 0, img: 'assets/img/banner1.png' },
+    { id: 1, img: 'assets/img/banner2.png' },
+    { id: 2, img: 'assets/img/banner3.png' },
+    { id: 3, img: 'assets/img/banner4.png' }
   ];
 
   // Índice en slides[] del banner que está “al frente” (center)
@@ -54,4 +63,37 @@ export class HomeComponent {
   prev() {
     this.currentCenterIndex = (this.currentCenterIndex + this.slides.length - 1) % this.slides.length;
   }
+
+  onMouseDown(event: MouseEvent): void {
+    this.startX = event.clientX;
+    this.dragging = true;
+    this.moved = false;
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    if (!this.dragging) return;
+
+    this.currentX = event.clientX;
+
+    // Si hay movimiento real, marca "moved"
+    if (Math.abs(this.currentX - this.startX) > 10) {
+      this.moved = true;
+    }
+  }
+
+  onMouseUp(event: MouseEvent): void {
+    if (!this.dragging) return;
+
+    this.dragging = false;
+
+    if (!this.moved) return; 
+
+    const diffX = this.currentX - this.startX;
+
+    if (Math.abs(diffX) > 50) {
+      diffX > 0 ? this.next() : this.prev();
+    }
+  }
+
+
 }

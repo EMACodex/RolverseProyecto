@@ -58,7 +58,7 @@
 
 .reset-pass-input {
   width: 100%;
-  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem; /* Ajuste el padding para dejar espacio para el icono de candado */
   font-size: 1rem;
   border-radius: 4px;
   border: 1.5px solid #555;
@@ -74,9 +74,16 @@
   box-shadow: 0 0 8px #f0a500aa;
 }
 
+.input-icon {
+  position: absolute;
+  left: 10px; /* Icono de candado en la izquierda */
+  font-size: 16px;
+  color: #ddd;
+}
+
 .reset-pass-icon {
   position: absolute;
-  right: 10px;
+  right: 10px; /* Icono de visibilidad en la derecha */
   font-size: 1.25rem;
   cursor: pointer;
   color: #f0a500;

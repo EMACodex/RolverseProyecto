@@ -109,3 +109,37 @@
   margin-top: 0.25rem;
   font-size: 0.9rem;
 }
+
+.send-mail-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.send-mail-input {
+  width: 100%;
+  padding-right: 30px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1.5px solid #555;
+  background-color: #2a2a3d;
+  color: #eee;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.send-mail-input:focus {
+  outline: none;
+  border-color: #f0a500;
+  box-shadow: 0 0 8px #f0a500aa;
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px; /* Coloca el icono en el lado derecho */
+  font-size: 16px;
+  color: #666;
+}
+

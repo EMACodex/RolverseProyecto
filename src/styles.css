@@ -8,6 +8,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+
+
 /* ========================
    Variables de color
    ======================== */
@@ -202,7 +205,7 @@ select:focus {
 }
 
 /* ========================
-   Footer (footer)
+   Footer
    ======================== */
 footer {
   background-color: var(--color-marron-tost);
@@ -226,7 +229,7 @@ footer {
 }
 
 /* ========================
-   Header específico (qué ya tenías)
+   Header específico
    ======================== */
 .header-container {
   background-image: url('/assets/img/header.jpg');
@@ -236,7 +239,7 @@ footer {
 }
 
 /* ========================
-   Fondo de HomeComponent (.home-background)
+   Fondo de HomeComponent
    ======================== */
 .home-background {
   display: block;
@@ -253,9 +256,21 @@ footer {
   position: absolute;
   inset: 0;
   /* 0.15 = muy leve; prueba valores entre 0.0 y 0.2 para algo casi transparente */
-  background: rgba(0, 0, 0, 0.15); 
+  background: rgba(0, 0, 0, 0.15);
   pointer-events: none;
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::ng-deep .cdk-overlay-container, 
+::ng-deep .cdk-overlay-pane {
+  z-index: 2000 !important; /* asegúrate de que va por encima */
+  pointer-events: auto !important;
+.transparent-backdrop {
+  background: transparent !important;
+}
+}

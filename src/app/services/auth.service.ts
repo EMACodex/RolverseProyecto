@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RUTA_API } from '../../../environment';
-import { LoginCredentials, Response, RegisterCredentials } from '../interfaces/auth.interface';
-import { Observable } from 'rxjs';
+import { RUTA_API } from '../../environment';
+import { LoginCredentials, Response, RegisterCredentials, DecodedToken, tokenData } from '../interfaces/auth.interface';
+import { Observable, of, throwError  } from 'rxjs';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +33,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 
   sendMailRecoversPass(email: string): Observable<boolean> {
@@ -39,6 +42,39 @@ export class AuthService {
 
   resetPass(token: string, password: string): Observable<boolean> {
     return this.http.put<boolean>(`${this.apiURL}/recover`, { token, password });
+  }
+  getCurrentUser(): DecodedToken | null {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    try {
+      return jwtDecode(token) as DecodedToken;
+    } catch (e) {
+      console.error('Error decodificando el token', e);
+      return null;
+    }
+  }
+
+  isAdmin(): boolean {
+    const user = this.getCurrentUser();
+    return user?.roles.includes('admin') ?? false;
+  }
+
+
+  getTokenData(): Observable<tokenData> {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      return throwError(() => new Error('No token found'));
+    }
+
+    try {
+      const decodedToken = jwtDecode<tokenData>(token);
+      return of(decodedToken);
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return throwError(() => new Error('Invalid token'));
+    }
   }
 
 }

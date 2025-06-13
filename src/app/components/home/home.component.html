@@ -1,15 +1,77 @@
 <div class="home-background">
-  <div class="carousel-container">
+  <!-- TEXTO ENCIMA DEL BANNER -->
+  <div class="blur-box">
+    <div class="banner-text-top">
+      <p>Desde las mazmorras más oscuras hasta las galaxias más lejanas...</p>
+      <p>D&D, Pathfinder, Anima, Star Wars, Cthulhu y más...</p>
+      <p>¡Descubre mundos, crea héroes, vive el rol!</p>
+    </div>
+  </div>
+  <!-- CARRUSEL -->
+  <div
+    class="carousel-container"
+    (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseup)="onMouseUp($event)"
+  >
     <!-- Flecha izquierda -->
-    <button class="nav-arrow left-arrow" (click)="prev()">‹</button>
+    <button class="nav-arrow left-arrow" (click)="prev()">
+      <img src="/assets/img/flecha2.png" alt="Flecha izquierda" />
+    </button>
 
-    <!-- Usando @for en lugar de *ngFor -->
+    <!-- Banner -->
     @for(slide of slides; track $index){
       <div class="carousel-item" [ngClass]="getPositionClass(slide.id)">
-        <img [src]="slide.img" alt="Banner {{ slide.id }}" />
+        <img [src]="slide.img" alt="Banner {{ slide.id }}" draggable="false" />
       </div>
     }
+
     <!-- Flecha derecha -->
-    <button class="nav-arrow right-arrow" (click)="next()">›</button>
+    <button class="nav-arrow right-arrow" (click)="next()">
+      <img src="/assets/img/flecha1.png" alt="Flecha derecha" />
+    </button>
   </div>
+
+  <!-- TEXTO DEBAJO DEL BANNER -->
+  <div class="blur-box">
+    <div class="banner-text-bottom">
+      <p>Explora. Imagina. Juega.</p>
+      <p>Rolverse: el hogar de los aventureros modernos.</p>
+    </div>
+  </div>
+
+  <div class="tabs-container">
+    <mat-tab-group mat-stretch-tabs>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <img src="/assets/icons/noticias.png" alt="Noticias" class="tab-icon" />
+          Noticias
+        </ng-template>
+        <app-news></app-news>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <img src="/assets/icons/partidas.png" alt="Partidas" class="tab-icon" />
+          Partidas
+        </ng-template>
+        <div class="tab-placeholder">
+          <p>Próximamente podrás explorar y unirte a partidas de rol.</p>
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <img src="/assets/icons/personaje.png" alt="Creador de personajes" class="tab-icon" />
+          Creador de personajes
+        </ng-template>
+        <div class="tab-placeholder">
+          <p>Herramienta para crear personajes de D&D, Pathfinder y más...</p>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+
+
 </div>

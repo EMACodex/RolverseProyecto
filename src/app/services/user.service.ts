@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RUTA_API } from '../../../environment';
+import { RUTA_API } from '../../environment';
 import { personalUserResponse } from '../interfaces/user.interface';
 import { Observable } from 'rxjs';
 

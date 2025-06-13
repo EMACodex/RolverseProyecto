@@ -2,11 +2,22 @@ import { Component } from '@angular/core';
 import { personalUser } from '../../../interfaces/user.interface';
 import { UserService } from '../../../services/user.service';
 import { jwtDecode } from 'jwt-decode';
-
+import { CommonModule } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-personal',
-  imports: [],
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './personal.component.html',
   styleUrl: './personal.component.css'
 })

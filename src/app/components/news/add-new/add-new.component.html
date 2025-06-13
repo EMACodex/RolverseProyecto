@@ -1,0 +1,38 @@
+<div class="page-background"> 
+    <br><br><br><br><br><br>
+    <div class="news-form-container">
+        <h2>Agregar nueva noticia</h2>
+
+        <form [formGroup]="newsForm" (ngSubmit)="onSubmit()" class="news-form">
+            <!-- Título -->
+            <label for="title">Título *</label>
+            <input id="title" type="text" formControlName="title" required />
+
+            <!-- Autor -->
+            <label for="author">Autor *</label>
+            <input id="author" type="text" formControlName="author" required />
+
+            <!-- Fecha -->
+            <label>Fecha de creación</label>
+            <input type="text" [value]="fechaActual" disabled />
+
+            <!-- Imagen -->
+            <label for="image">Imagen</label>
+            <input id="image" type="file" (change)="onImageSelected($event)" />
+
+            <!-- Vista previa -->
+            @if (imagePreview) {
+            <div class="image-preview">
+                <img [src]="imagePreview" alt="Vista previa de imagen" />
+            </div>
+            }
+
+            <!-- Contenido (descripción completa) -->
+            <label for="content">Descripción *</label>
+            <textarea id="content" rows="8" formControlName="content" required></textarea>
+
+            <button class="rpg-login-button" type="submit" [disabled]="newsForm.invalid">Publicar noticia</button>
+        </form>
+    </div>
+    <br><br><br><br><br><br>
+</div>

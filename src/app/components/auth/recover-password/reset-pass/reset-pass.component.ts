@@ -41,7 +41,7 @@ export class ResetPassComponent {
         this.snackBar.open('Contraseña cambiada correctamente', 'Cerrar', {
           duration: 2000,
         });
-        location.href = '/sesion';
+        location.href = '/session/login';
       } else {
         this.snackBar.open('No se ha podido cambiar la contraseña', 'Cerrar', {
           duration: 2000,

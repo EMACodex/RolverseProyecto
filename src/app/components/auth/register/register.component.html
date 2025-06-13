@@ -1,11 +1,14 @@
-
 <div class="contenedor">
   <div class="register-container">
     <h2 class="title">Registro</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+
       <div class="form-group">
         <label for="name" class="label">Nombre</label>
-        <input id="name" formControlName="name" type="text" class="input-field" />
+        <div class="input-icon-container">
+          <input id="name" formControlName="name" type="text" class="input-field" />
+          <i class="fas fa-user input-icon"></i> <!-- Icono de usuario a la derecha -->
+        </div>
         @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
           <div class="error">
             El nombre es requerido y debe tener al menos 3 caracteres.
@@ -15,7 +18,10 @@
 
       <div class="form-group">
         <label for="email" class="label">Correo electrónico</label>
-        <input id="email" formControlName="email" type="email" class="input-field" />
+        <div class="input-icon-container">
+          <input id="email" formControlName="email" type="email" class="input-field" />
+          <i class="fas fa-envelope input-icon"></i> <!-- Icono de correo electrónico a la derecha -->
+        </div>
         @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
           <div class="error">
             El correo electrónico es requerido y debe ser válido.
@@ -25,7 +31,10 @@
 
       <div class="form-group">
         <label for="password" class="label">Contraseña</label>
-        <input id="password" formControlName="password" type="password" class="input-field" />
+        <div class="input-icon-container">
+          <input id="password" formControlName="password" type="password" class="input-field" />
+          <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
+        </div>
         @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
           <div class="error">
             La contraseña es requerida y debe tener al menos 6 caracteres.
@@ -47,7 +56,7 @@
       }
 
       <div class="links">
-        <a routerLink="/login" class="link">¿Tienes una cuenta? Inicia Sesión</a>
+        <a routerLink="/session/login" class="link">¿Tienes una cuenta? Inicia Sesión</a>
       </div>
     </form>
   </div>

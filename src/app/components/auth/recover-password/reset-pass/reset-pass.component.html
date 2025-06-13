@@ -7,6 +7,7 @@
         <label for="password" class="reset-pass-label">Contraseña</label>
         <div class="reset-pass-input-wrapper">
           <input id="password" [type]="!visible ? 'password' : 'text'" formControlName="password" class="reset-pass-input" />
+          <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
           <mat-icon class="reset-pass-icon" (click)="visible = !visible">
             {{ visible ? 'visibility' : 'visibility_off' }}
           </mat-icon>
@@ -21,6 +22,7 @@
         <label for="passwordRep" class="reset-pass-label">Repite la contraseña</label>
         <div class="reset-pass-input-wrapper">
           <input id="passwordRep" [type]="!visibleRep ? 'password' : 'text'" formControlName="passwordRep" class="reset-pass-input" />
+          <i class="fas fa-lock input-icon"></i> <!-- Icono de candado a la derecha -->
           <mat-icon class="reset-pass-icon" (click)="visibleRep = !visibleRep">
             {{ visibleRep ? 'visibility' : 'visibility_off' }}
           </mat-icon>
