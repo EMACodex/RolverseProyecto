@@ -192,6 +192,10 @@
   color: var(--color-pergamino);
 }
 
+::ng-deep .transparent-backdrop {
+  background-color: transparent !important;
+}
+
 /* 1) Oculta el botón hamburguesa en escritorio */
 .hamburger {
   display: none;
