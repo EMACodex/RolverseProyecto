@@ -1,7 +1,8 @@
-.contenedor{
+.contenedor {
+  padding-top: 134px;
   min-height: 100vh;
   width: 100%;
-  background: url('/assets/img/fondo.jpg') no-repeat center center;
+  background: url("/assets/img/fondo.jpg") no-repeat center center;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -12,11 +13,6 @@
   margin-top: 2.5%;
 }
 
-.h1 {
-  text-align: center !important;
-  margin-top: 20px;
-}
-
 .admin-actions {
   position: fixed;
   bottom: 20px;
@@ -25,22 +21,120 @@
 }
 
 .create-forum {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  font-size: 30px;
+  background: radial-gradient(circle at 30% 30%, #ffe066, #d4af37);
+  color: #2d1a05;
+  border: 3px solid #8c6f1f;
+  font-size: 2rem;
+  font-family: "Cinzel Decorative", cursive;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 230, 100, 0.6),
+    0 0 30px rgba(255, 230, 100, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  animation: pulse-glow 2s infinite;
 }
 
 .create-forum:hover {
-  background-color: #0056b3;
+  background: radial-gradient(circle at 30% 30%, #fff3b0, #ffd93d);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(255, 250, 200, 0.9),
+    0 0 40px rgba(255, 230, 150, 0.6);
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 230, 100, 0.3),
+      0 0 20px rgba(255, 230, 100, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 230, 100, 0.6),
+      0 0 35px rgba(255, 230, 100, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 230, 100, 0.3),
+      0 0 20px rgba(255, 230, 100, 0.1);
+  }
 }
 
 .transparent-backdrop {
   background: transparent !important;
+}
+
+.title h1 {
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 3.5rem;
+  color: #d4af37;
+  text-shadow: 4px 4px 8px #000;
+  margin-bottom: 0.2rem;
+}
+
+.title h2 {
+  font-family: "Cinzel", serif;
+  color: #e0c891;
+  font-size: 2rem;
+  text-shadow: 1px 1px 4px #000;
+  margin-top: 0;
+}
+
+.forum-card {
+  background: rgba(20, 10, 5, 0.8);
+  border: 2px solid #c9a769;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 85%;
+  max-width: 800px;
+  color: #fefae0;
+  box-shadow: 0 0 15px rgba(255, 215, 100, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.forum-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 230, 120, 0.5);
+}
+
+.forum-card h3 {
+  font-family: "MedievalSharp", cursive;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #ffd700;
+}
+
+.forum-card p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #e8dcc4;
+}
+
+.delete-forum {
+  background-color: #6b0f0f;
+  color: #ffe0b2;
+  border: 2px solid #a63232;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(139, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.delete-forum:hover {
+  background-color: #a80000;
+  color: #fff5cc;
+  box-shadow: 0 0 12px rgba(255, 50, 50, 0.9);
+  transform: scale(1.05);
+}
+
+.forum-actions {
+  text-align: right;
 }

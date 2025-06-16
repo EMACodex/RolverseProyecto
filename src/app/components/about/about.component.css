@@ -1,0 +1,66 @@
+/* about.component.css */
+
+/* Centrar todo el contenido del component */
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 154px;
+  padding-bottom: 2rem;
+  min-height: calc(
+    100vh - 134px - 100px
+  ); /* si quieres descontar footer (~100px) */
+  background: url("/assets/img/contact.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Contenedor de las tarjetas */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Cada tarjeta mantiene tu estilo */
+.about-card {
+  background: var(--color-pergamino);
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.about-card h3 {
+  font-family: "Uncial Antiqua", cursive;
+  margin-bottom: 0.5rem;
+}
+
+.about-card p {
+  font-family: "Cardo", serif;
+  line-height: 1.6;
+}
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover .card-img {
+  transform: scale(1.02);
+}
+
+.card-img {
+  transition: transform 0.2s ease;
+}

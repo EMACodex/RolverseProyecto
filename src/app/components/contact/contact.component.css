@@ -1,0 +1,37 @@
+/* Aplica estilos al host de este componente */
+:host {
+  display: flex; /* para centrar contenido */
+  justify-content: center; /* horizontal */
+  align-items: center; /* vertical */
+  min-height: calc(100vh - 170px); /* ajusta según header/footer */
+  padding: 2rem;
+
+  /* Imagen de fondo */
+  background: url("/assets/img/contact.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Tu caja de contacto */
+.contact-box {
+  background: var(--color-pergamino);
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  font-family: "Cardo", serif;
+  color: #3b1f0f;
+  line-height: 1.6;
+
+  /* Centrar texto si quieres */
+  text-align: center;
+}
+
+.contact-box a {
+  color: var(--color-dorado);
+  text-decoration: none;
+}
+.contact-box a:hover {
+  text-decoration: underline;
+}

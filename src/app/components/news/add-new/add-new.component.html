@@ -1,38 +1,47 @@
-<div class="page-background"> 
-    <br><br><br><br><br><br>
-    <div class="news-form-container">
-        <h2>Agregar nueva noticia</h2>
+<div class="page-background">
 
-        <form [formGroup]="newsForm" (ngSubmit)="onSubmit()" class="news-form">
-            <!-- Título -->
-            <label for="title">Título *</label>
-            <input id="title" type="text" formControlName="title" required />
+  <div class="news-form-container">
+    <h2>Agregar nueva noticia</h2>
 
-            <!-- Autor -->
-            <label for="author">Autor *</label>
-            <input id="author" type="text" formControlName="author" required />
+    <form [formGroup]="newsForm" (ngSubmit)="onSubmit()" class="news-form">
+      <!-- Título -->
+      <label for="title">Título *</label>
+      <input id="title" type="text" formControlName="title" required />
 
-            <!-- Fecha -->
-            <label>Fecha de creación</label>
-            <input type="text" [value]="fechaActual" disabled />
+      <!-- Fecha -->
+      <label>Fecha de creación</label>
+      <input type="text" [value]="fechaActual" disabled />
 
-            <!-- Imagen -->
-            <label for="image">Imagen</label>
-            <input id="image" type="file" (change)="onImageSelected($event)" />
+      <!-- Imagen -->
+      <label for="image">Imagen</label>
+      <input id="image" type="file" (change)="onImageSelected($event)" />
 
-            <!-- Vista previa -->
-            @if (imagePreview) {
-            <div class="image-preview">
-                <img [src]="imagePreview" alt="Vista previa de imagen" />
-            </div>
-            }
+      <!-- Vista previa -->
+      @if (imagePreview) {
+      <div class="image-preview">
+        <img [src]="imagePreview" alt="Vista previa de imagen" />
+      </div>
+      }
 
-            <!-- Contenido (descripción completa) -->
-            <label for="content">Descripción *</label>
-            <textarea id="content" rows="8" formControlName="content" required></textarea>
+      <!-- Contenido (descripción completa) -->
+      <label for="content">Descripción *</label>
+      <textarea
+        id="content"
+        rows="8"
+        formControlName="content"
+        required
+      ></textarea>
 
-            <button class="rpg-login-button" type="submit" [disabled]="newsForm.invalid">Publicar noticia</button>
-        </form>
+      <button class="rpg-login-button" type="submit">Publicar noticia</button>
+    </form>
+    @if (errorMessage) {
+    <div class="modal-backdrop">
+      <div class="modal-window">
+        <p>{{ errorMessage }}</p>
+        <button class="rpg-login-button" (click)="closeError()">Cerrar</button>
+      </div>
     </div>
-    <br><br><br><br><br><br>
+    }
+  </div>
+
 </div>

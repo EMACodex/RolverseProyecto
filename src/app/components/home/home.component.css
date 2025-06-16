@@ -1,21 +1,22 @@
 /* 1) Fondo de la Home (puedes ajustarlo si quieres otro efecto o transparencia) */
 .home-background {
   min-height: 100vh;
-  background: url('/assets/img/fondo.jpg') no-repeat center center;
+  background: url("/assets/img/fondo.jpg") no-repeat center center;
   background-size: cover;
   position: relative;
   overflow: hidden;
+  padding-top: 134px;
 }
 
 /* 2) Contenedor general del carousel */
 .carousel-container {
   position: relative;
   width: 60%;
-  max-width: none;       /* Ancho total del área del carrusel */
-  height: 400px;          /* Alto fijo: ajusta a tu gusto */
-  margin: 0 auto;         /* Centrar horizontalmente */
-  margin-top: 40px;       /* Separación desde el header */
-  overflow: visible;      /* Para que se vean los elementos “left/right/back” fuera del contenedor */
+  max-width: none; /* Ancho total del área del carrusel */
+  height: 400px; /* Alto fijo: ajusta a tu gusto */
+  margin: 0 auto; /* Centrar horizontalmente */
+  margin-top: 40px; /* Separación desde el header */
+  overflow: visible; /* Para que se vean los elementos “left/right/back” fuera del contenedor */
 }
 
 /* 3) Cada elemento del carrusel (imagen envuelta) */
@@ -26,8 +27,8 @@
   transform-origin: center center;
   transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
   opacity: 0;
-  width: 600px;        /* Base para la imagen principal; luego lo escalamos */
-  height: 375px;      /* Base para la imagen principal; luego lo escalamos */
+  width: 600px; /* Base para la imagen principal; luego lo escalamos */
+  height: 375px; /* Base para la imagen principal; luego lo escalamos */
 }
 
 /* 4) Banner central (clase “center”):
@@ -91,24 +92,26 @@
   cursor: pointer;
   z-index: 5;
 }
+.arrow-img {
+  transition: 0.25s;
+  filter: drop-shadow(0 0 0.5rem rgb(2, 2, 1));
+}
+.arrow-img:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(1, 1, 1));
+}
 
 .nav-arrow img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-
 }
 
 .left-arrow {
-  left: 10px;
+  left: -30px;
 }
 
 .right-arrow {
-  right: 10px;
-}
-
-.nav-arrow:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  right: -30px;
 }
 
 .banner-text-top,
@@ -119,7 +122,7 @@
   margin: 20px auto;
   max-width: 900px;
   padding: 0 16px;
-  font-family: 'MedievalSharp', serif;
+  font-family: "MedievalSharp", serif;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -131,14 +134,13 @@
 
 .banner-text-bottom {
   margin-top: 30px;
-  font-family: 'MedievalSharp', serif;
+  font-family: "MedievalSharp", serif;
   font-size: 1.2rem;
 }
 
-
 .tabs-container {
   width: 70%;
-  max-width: none; 
+  max-width: none;
   margin: 3rem auto;
   background-color: rgba(255, 248, 220, 0.95);
   border: 3px double var(--color-marron-tost);
@@ -148,7 +150,7 @@
 }
 
 ::ng-deep .mat-tab-label {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.1rem;
   color: var(--color-marron-tost);
   text-shadow: 1px 1px #ffe0a8;
@@ -156,7 +158,7 @@
 
 .tab-placeholder {
   text-align: center;
-  font-family: 'Cardo', serif;
+  font-family: "Cardo", serif;
   font-size: 1.1rem;
   padding: 2rem;
   color: var(--color-marron-tost);
@@ -169,7 +171,6 @@
   vertical-align: middle;
 }
 
-
 .blur-box {
   background: rgba(255, 248, 220, 0.6); /* tono pergamino translúcido */
   backdrop-filter: blur(6px);
@@ -180,4 +181,170 @@
   margin: 2rem auto;
   width: 90%;
   max-width: 1100px;
+}
+
+/* ================================
+   Tablets grandes / pantallas medias
+   ================================ */
+@media (max-width: 1024px) {
+  .home-background {
+    padding-top: 120px; /* menos hueco arriba */
+  }
+  .carousel-container {
+    width: 90%;
+    max-width: 500px; /* límite para que no crezca en pantallas muy anchas */
+    height: auto;
+    aspect-ratio: 600/375; /* mantiene proporción original */
+  }
+  .carousel-item,
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+  }
+  .tabs-container {
+    width: 85%;
+  }
+  .blur-box {
+    width: 95%;
+    padding: 1rem;
+  }
+  .banner-text-top,
+  .banner-text-bottom {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* ================================
+   Tablets pequeñas 
+   ================================ */
+@media (max-width: 768px) {
+  .home-background {
+    padding-top: 100px;
+  }
+  .carousel-container {
+    width: 95%;
+    max-width: 350px;
+    aspect-ratio: 600/375;
+  }
+
+  /* Flechas más pequeñas y más cerca del borde */
+  .nav-arrow {
+    width: 48px;
+    height: 48px;
+    top: calc(50% - 24px);
+  }
+  .left-arrow {
+    left: -20px;
+  }
+  .right-arrow {
+    right: -20px;
+  }
+
+  .carousel-item,
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+  }
+  .blur-box {
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  .banner-text-top,
+  .banner-text-bottom {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+  .tabs-container {
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
+/* ================================
+   Móviles pequeños
+   ================================ */
+@media (max-width: 480px) {
+  .home-background {
+    padding-top: 80px;
+  }
+  .carousel-container {
+    height: 50px;
+    overflow-x: scroll; /* permite swipe horizontal */
+  }
+  .carousel-item {
+    width: 120px;
+    height: 95px;
+  }
+  .nav-arrow {
+    width: 28px;
+    height: 28px;
+    top: calc(50% - 16px);
+  }
+  .left-arrow {
+    left: -12px;
+  }
+  .right-arrow {
+    right: -12px;
+  }
+
+  .blur-box {
+    width: 100%;
+    padding: 0.75rem;
+  }
+  .banner-text-top p,
+  .banner-text-bottom p {
+    font-size: 0.8rem;
+  }
+  .tabs-container {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .tab-placeholder {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+  .tab-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ================================
+   CARRUSEL MÁS PEQUEÑO EN TABLET/ MÓVIL
+   ================================ */
+
+/* Tablets (≤1024px): ancho 80vw, altura según proporción 600×375 */
+@media (max-width: 1024px) {
+  .carousel-container {
+    width: 80vw !important;
+    max-width: none !important;
+    height: auto !important;
+    aspect-ratio: 600/375 !important;
+    margin-top: 20px !important;
+  }
+  .carousel-item,
+  .carousel-item img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* Móviles (≤768px): ancho 90vw, altura según proporción */
+@media (max-width: 768px) {
+  .home-background .carousel-container {
+    width: 200px !important; /* ancho fijo muy pequeño */
+    height: 125px !important; /* mantiene proporción 600×375 (0.625) */
+    margin: 16px auto !important; /* centrado con margen vertical */
+    overflow: hidden !important;
+  }
+  .home-background .carousel-container .carousel-item,
+  .home-background .carousel-container .carousel-item img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .home-background .carousel-container .nav-arrow {
+    display: none !important; /* opcional: oculta flechas si no caben */
+  }
 }

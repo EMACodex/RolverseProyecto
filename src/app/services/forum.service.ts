@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RUTA_API } from '../../environment';
 import { HttpClient } from '@angular/common/http';
-import { ForumInterface, ForumResponse } from '../interfaces/forum.interface';
+import { deleteForumResponse, ForumInterface, getForumResponse, getForumsResponse } from '../interfaces/forum.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,23 +15,23 @@ export class ForumService {
     private http: HttpClient
   ) { }
 
-  getAllForums() {
-    return this.http.get(`${this.apiURL}/all`);
+  getAllForums(): Observable<getForumsResponse> {
+    return this.http.get<getForumsResponse>(`${this.apiURL}/all`);
   }
 
-  getForumById(id: string) {
-    return this.http.get(`${this.apiURL}/${id}`);
+  getForumById(id: number): Observable<getForumResponse>{
+    return this.http.get<getForumResponse>(`${this.apiURL}/${id}`);
   }
 
-  createForum(forumData: ForumInterface): Observable<ForumResponse> {
-    return this.http.post<ForumResponse>(`${this.apiURL}/new`, forumData);
+  createForum(forumData: ForumInterface) {
+    return this.http.post(`${this.apiURL}/new`, forumData);
   }
 
   updateForum(id: string, forumData: any) {
     return this.http.put(`${this.apiURL}/update/${id}`, forumData);
   }
 
-  deleteForum(id: string) {
-    return this.http.delete(`${this.apiURL}/delete/${id}`);
+  deleteForum(id: number): Observable<deleteForumResponse> {
+    return this.http.delete<deleteForumResponse>(`${this.apiURL}/${id}`);
   }
 }

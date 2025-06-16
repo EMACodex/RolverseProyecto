@@ -16,19 +16,27 @@
   >
     <!-- Flecha izquierda -->
     <button class="nav-arrow left-arrow" (click)="prev()">
-      <img src="/assets/img/flecha2.png" alt="Flecha izquierda" />
+      <img
+        class="arrow-img"
+        src="/assets/img/flecha2.png"
+        alt="Flecha izquierda"
+      />
     </button>
 
     <!-- Banner -->
     @for(slide of slides; track $index){
-      <div class="carousel-item" [ngClass]="getPositionClass(slide.id)">
-        <img [src]="slide.img" alt="Banner {{ slide.id }}" draggable="false" />
-      </div>
+    <div class="carousel-item" [ngClass]="getPositionClass(slide.id)">
+      <img [src]="slide.img" alt="Banner {{ slide.id }}" draggable="false" />
+    </div>
     }
 
     <!-- Flecha derecha -->
     <button class="nav-arrow right-arrow" (click)="next()">
-      <img src="/assets/img/flecha1.png" alt="Flecha derecha" />
+      <img
+        class="arrow-img"
+        src="/assets/img/flecha1.png"
+        alt="Flecha derecha"
+      />
     </button>
   </div>
 
@@ -44,34 +52,44 @@
     <mat-tab-group mat-stretch-tabs>
       <mat-tab>
         <ng-template mat-tab-label>
-          <img src="/assets/icons/noticias.png" alt="Noticias" class="tab-icon" />
+          <img
+            src="/assets/icons/noticias.png"
+            alt="Noticias"
+            class="tab-icon"
+          />
           Noticias
         </ng-template>
         <app-news></app-news>
       </mat-tab>
 
+      <!-- Partidas: comentado temporalmente -->
+      <!--
       <mat-tab>
         <ng-template mat-tab-label>
-          <img src="/assets/icons/partidas.png" alt="Partidas" class="tab-icon" />
+          <img
+            src="/assets/icons/partidas.png"
+            alt="Partidas"
+            class="tab-icon"
+          />
           Partidas
         </ng-template>
         <div class="tab-placeholder">
           <p>Próximamente podrás explorar y unirte a partidas de rol.</p>
         </div>
       </mat-tab>
+      -->
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <img src="/assets/icons/personaje.png" alt="Creador de personajes" class="tab-icon" />
+          <img
+            src="/assets/icons/personaje.png"
+            alt="Creador de personajes"
+            class="tab-icon"
+          />
           Creador de personajes
         </ng-template>
-        <div class="tab-placeholder">
-          <p>Herramienta para crear personajes de D&D, Pathfinder y más...</p>
-        </div>
+        <app-thecreator></app-thecreator>
       </mat-tab>
     </mat-tab-group>
   </div>
-
-
-
 </div>

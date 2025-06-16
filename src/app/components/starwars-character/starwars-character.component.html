@@ -1,0 +1,38 @@
+<div class="starwars-bg">
+  <h2 class="section-title">Personajes</h2>
+
+  <div class="grid-container">
+    @for (img of images; track img) {
+    <div class="thumb-container">
+      <img
+        [src]="img"
+        alt="Star Wars personaje"
+        class="thumb"
+        (click)="openModal(img)"
+      />
+      <a [href]="img" [download]="getFileName(img)" class="download-button">
+        Descargar Personaje
+      </a>
+    </div>
+    } @if (selectedImg) {
+    <div class="overlay" (click)="closeModal()">
+      <img
+        [src]="selectedImg"
+        alt="Personaje ampliado"
+        class="modal-img"
+        (click)="$event.stopPropagation()"
+      />
+    </div>
+    }
+  </div>
+
+  <div class="pdf-download-wrapper">
+    <a
+      href="assets/img/personajes star wars/hoja personaje star wars.pdf"
+      download="hoja-personaje-starwars.pdf"
+      class="pdf-download-button"
+    >
+      Descargar Hoja de Personaje
+    </a>
+  </div>
+</div>

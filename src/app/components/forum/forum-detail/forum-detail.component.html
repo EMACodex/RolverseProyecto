@@ -1,0 +1,68 @@
+<div class="contenedor">
+
+  @if (forum) {
+    <div class="forum-detail-container">
+      <div class="forum-header">
+        <h1>{{ forum.title }}</h1>
+        <p class="forum-description">{{ forum.description }}</p>
+        <a routerLink="/forum" class="back-button">Volver al tablón</a>
+      </div>
+
+      <div class="messages-section">
+        <h2>Mensajes del Concilio</h2>
+
+        @if (messages.length > 0) {
+          <div >
+          @for (message of messages; track $index) {
+            <div class="message-card">
+              <div class="message-meta">
+                  <span class="author">{{ message.user_name }}</span>
+                  <span class="timestamp">{{ message.creation_date| date:'dd/MM/yyyy HH:mm' }}</span>
+                </div>
+                <div class="message-content">
+                  {{ message.text }}
+                </div>
+              </div>
+            }
+          </div>
+        }
+        @else {
+          <ng-container *ngTemplateOutlet="noMessages"></ng-container>
+        }
+
+
+        <ng-template #noMessages>
+          <p class="no-messages">Ningún aventurero ha hablado aún...</p>
+        </ng-template>
+      </div>
+      <div class="create-message-container">
+        <h3>✍️ Deja tu mensaje en el concilio</h3>
+        <form  [formGroup]="messageForm" (ngSubmit)="createMessage()">
+          <textarea
+            formControlName="text"
+            placeholder="Escribe tu mensaje como un aventurero..."
+          ></textarea>
+
+          <button type="submit" [disabled]="messageForm.invalid" class="send-message">
+            📜 Enviar mensaje
+          </button>
+        </form>
+        <div *ngIf="previewImage" class="image-preview">
+          <p>Imagen seleccionada:</p>
+          <img [src]="previewImage" alt="preview">
+        </div>
+      </div>
+    </div>
+  }
+  @else {
+    <ng-template #noForum>
+      <div class="forum-not-found">
+        <h2>🧙‍♂️ El foro ha desaparecido entre las brumas...</h2>
+        <p>Puede que el concilio haya sido disuelto.</p>
+        <a routerLink="/forum" class="back-button">Volver al tablón</a>
+      </div>
+    </ng-template>
+    <ng-container *ngTemplateOutlet="noForum"></ng-container>
+  }
+</div>
+

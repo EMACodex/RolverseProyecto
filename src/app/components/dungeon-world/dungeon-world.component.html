@@ -1,0 +1,28 @@
+<div class="dungeon-bg">
+  <h2 class="section-title">Mapas</h2>
+
+  <div class="grid-container">
+    @for (map of maps; track map) {
+    <div class="thumb-container">
+      <img
+        [src]="map"
+        alt="Dungeon World map"
+        class="thumb"
+        (click)="openModal(map)"
+      />
+      <a [href]="map" [download]="getFileName(map)" class="download-button">
+        Descargar Mapa
+      </a>
+    </div>
+    } @if (selectedMap) {
+    <div class="overlay" (click)="closeModal()">
+      <img
+        [src]="selectedMap"
+        alt="Mapa ampliado"
+        class="modal-img"
+        (click)="$event.stopPropagation()"
+      />
+    </div>
+    }
+  </div>
+</div>

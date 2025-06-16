@@ -1,89 +1,145 @@
 @if(!isSessionRoute()){
-  <header class="header-container">
-    <div class="main-logo-wrapper">
-        <a routerLink="/">
-          <img src="assets/img/logo.png" alt="Rolverse Logo" class="main-logo" />
-        </a>
-    </div>
+<header class="header-container">
+  <div class="main-logo-wrapper">
+    <a routerLink="/">
+      <img src="assets/img/logo.png" alt="Rolverse Logo" class="main-logo" />
+    </a>
+  </div>
 
-    <div class="center-wrapper">
-      <nav class="logo-nav">
+  <!-- Botón hamburguesa para móvil -->
+  <button class="hamburger" (click)="toggleMobileMenu()">☰</button>
 
-        <div class="logo-wrapper">
+  <div class="center-wrapper" [class.open]="mobileMenuOpen">
+    <nav class="logo-nav">
+      <!-- D&D -->
+      <div class="logo-wrapper">
+        <div
+          class="game-logo-button"
+          [matMenuTriggerFor]="ddMenu"
+          #ddTrigger="matMenuTrigger"
+          (menuOpened)="swTrigger?.closeMenu()"
+        >
           <img src="assets/img/d&d.png" alt="D&D" class="game-logo" />
-          <span class="tooltip-text">D&D</span>
         </div>
+        <span class="tooltip-text">D&D</span>
 
+        <mat-menu
+          #ddMenu="matMenu"
+          class="pergamino-menu"
+          [hasBackdrop]="false"
+        >
+          <button mat-menu-item routerLink="/personajes">Personajes</button>
+          <button mat-menu-item routerLink="/mapas">Mapas</button>
+        </mat-menu>
+      </div>
+
+      <!-- Pathfinder (comentado) -->
+      <!--
         <div class="logo-wrapper">
           <img src="assets/img/pathfinder.png" alt="Pathfinder" class="game-logo" />
           <span class="tooltip-text">Pathfinder</span>
         </div>
+        -->
 
+      <!-- Anima (comentado) -->
+      <!--
         <div class="logo-wrapper">
           <img src="assets/img/anima.png" alt="Anima" class="game-logo" />
           <span class="tooltip-text">Anima</span>
         </div>
+        -->
 
+      <!-- Warhammer 40000 (comentado) -->
+      <!--
         <div class="logo-wrapper">
-          <img src="assets/img/warhammer 40000.png" alt="Warhammer" class="game-logo" />
+          <img src="assets/img/warhammer 40000.png" alt="Warhammer 40000" class="game-logo" />
           <span class="tooltip-text">Warhammer 40000</span>
         </div>
+        -->
 
+      <!-- Cthulhu (comentado) -->
+      <!--
         <div class="logo-wrapper">
           <img src="assets/img/cthulu.png" alt="Cthulhu" class="game-logo" />
           <span class="tooltip-text">Cthulhu</span>
         </div>
+        -->
 
+      <!-- La Leyenda de los 5 Anillos (comentado) -->
+      <!--
         <div class="logo-wrapper">
           <img src="assets/img/5 anillos.png" alt="Leyenda de los 5 Anillos" class="game-logo" />
           <span class="tooltip-text">La Leyenda de los 5 Anillos</span>
         </div>
+        -->
 
+      <!-- Masks (comentado) -->
+      <!--
         <div class="logo-wrapper">
           <img src="assets/img/masks.png" alt="Masks" class="game-logo" />
           <span class="tooltip-text">Masks</span>
         </div>
+        -->
 
-        <div class="logo-wrapper">
-          <img src="assets/img/starwars.png" alt="Star Wars" class="game-logo" />
-          <span class="tooltip-text">Star Wars</span>
-        </div>   
-
-
-        <div class="logo-wrapper">
-          <a routerLink="/forum">
-            <img src="assets/img/forum.png" alt="Foro" class="game-logo" />
-          </a>
-          <span class="tooltip-text">Foro</span>
+      <!-- Star Wars -->
+      <div class="logo-wrapper">
+        <div
+          class="game-logo-button"
+          [matMenuTriggerFor]="swMenu"
+          #swTrigger="matMenuTrigger"
+          (menuOpened)="ddTrigger?.closeMenu()"
+        >
+          <img
+            src="assets/img/starwars.png"
+            alt="Star Wars"
+            class="game-logo"
+          />
         </div>
+        <span class="tooltip-text">Star Wars</span>
 
-      </nav>
-    </div>
-
-    <div class="login-button-wrapper">
-      @if (isLoggedIn()) {
-        <div class="auth-buttons">
-          <button class="rpg-login-button" [matMenuTriggerFor]="userMenu">
-            Mi cuenta ▼
+        <mat-menu
+          #swMenu="matMenu"
+          class="pergamino-menu"
+          [hasBackdrop]="false"
+        >
+          <button mat-menu-item routerLink="/starwars/personajes">
+            Personajes
           </button>
+          <button mat-menu-item routerLink="/starwars/planetas">Mapas</button>
+        </mat-menu>
+      </div>
 
-          <mat-menu #userMenu="matMenu"  class="pergamino-menu">
-            @if (isAdmin) {
-              <button mat-menu-item [routerLink]="'/noticias/agregar'">📝 Agregar Noticia</button>
-            }
-            <button mat-menu-item (click)="logout()">⚔️ Cerrar Sesión</button>
-            <button mat-menu-item [routerLink]="'/profile'">👤 Perfil</button>
-          </mat-menu>
+      <div class="logo-wrapper">
+        <a routerLink="/forum">
+          <img src="assets/img/forum.png" alt="Foro" class="game-logo" />
+        </a>
+        <span class="tooltip-text">Foro</span>
+      </div>
+    </nav>
+  </div>
 
-        </div>
-      }
-      @else {
-        <button class="rpg-login-button" routerLink="/session/login">
-          🛡️ Iniciar Sesión
+  <div class="login-button-wrapper">
+    @if (isLoggedIn()) {
+    <div class="auth-buttons">
+      <button class="rpg-login-button" [matMenuTriggerFor]="userMenu">
+        Mi cuenta ▼
+      </button>
+
+      <mat-menu #userMenu="matMenu" class="pergamino-menu">
+        @if (isAdmin) {
+        <button mat-menu-item [routerLink]="'/noticias/agregar'">
+          📝 Agregar Noticia
         </button>
-      }
+        }
+        <button mat-menu-item (click)="logout()">⚔️ Cerrar Sesión</button>
+        <button mat-menu-item [routerLink]="'/profile'">👤 Perfil</button>
+      </mat-menu>
     </div>
-  </header>
+    } @else {
+    <button class="rpg-login-button" routerLink="/session/login">
+      🛡️ Iniciar Sesión
+    </button>
+    }
+  </div>
+</header>
 }
-
-

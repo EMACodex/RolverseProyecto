@@ -32,7 +32,6 @@ export class CreateForumComponent {
     if (this.forumForm.valid) {
       this.forumService.createForum(this.forumForm.value).subscribe({
         next: (response) => {
-          console.log('Forum created successfully:', response.message);
           this.forumForm.reset();
           this.dialogRef.close(true); // ✅ Cierra el diálogo
         },

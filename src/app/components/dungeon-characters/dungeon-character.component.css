@@ -1,0 +1,126 @@
+.dungeon-bg {
+  background: url("assets/img/personajes dungeon/dungeon.jpg") no-repeat center
+    center;
+  background-size: cover;
+  padding-top: 130px;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 100px);
+  text-align: center;
+}
+
+.grid-container {
+  padding-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 76px;
+  margin: 0 auto; /* centra horizontalmente */
+  justify-content: center; /* por si sobra espacio */
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+/* Contenedor y miniatura reducidos */
+.thumb-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  padding-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* recorta bien la imagen si no es cuadrada */
+  border-radius: 4px; /* opcional, suaviza bordes */
+  padding-bottom: 2.5rem;
+}
+.thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay que oscurece el fondo */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Imagen ampliada */
+.modal-img {
+  max-width: 130vw;
+  max-height: 130vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.modal-img:hover {
+  transform: scale(1.02);
+}
+
+.download-button {
+  display: block;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: linear-gradient(#b08c4f, #7c5e2b);
+  color: #fff;
+  padding: 4px 8px;
+  border: 2px solid #4b2e15;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.download-button:hover {
+  background: linear-gradient(#d1a864, #8b6a36);
+  transform: scale(1.05);
+}
+
+/* Centra el botón de descarga de PDF y dale estilo */
+.pdf-download-wrapper {
+  text-align: center;
+  margin-top: 3rem; /* espacio sobre el botón */
+}
+
+.pdf-download-button {
+  display: inline-block;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  text-decoration: none;
+  background: linear-gradient(#b08c4f, #7c5e2b);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: 3px solid #4b2e15;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.pdf-download-button:hover {
+  background: linear-gradient(#d1a864, #8b6a36);
+  transform: scale(1.05);
+}
+
+.section-title {
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-size: 2rem;
+  margin: 1rem auto;
+  display: inline-block;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+  padding-bottom: 0.25rem;
+}

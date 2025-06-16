@@ -1,0 +1,75 @@
+<!-- thecreator.component.html -->
+<div class="creator-container">
+  <!-- Si no hay resultado aún, mostrar preguntas -->
+  @if (!resultado) {
+  <div class="question-card">
+    <h3>{{ preguntas[idx].texto }}</h3>
+    <div class="options">
+      @for (opt of preguntas[idx].opciones; track opt.key) {
+      <button (click)="elegir(opt.key)">
+        {{ opt.label }}
+      </button>
+      }
+    </div>
+  </div>
+  } @else {
+  <!-- Una vez contestadas las 10 preguntas, mostrar resultado -->
+  <div class="result-card">
+    <h2>¡Eres un {{ resultado }}!</h2>
+
+    <!-- Avatares según el resultado -->
+    @if (resultado === 'Hobbit') {
+    <img src="/assets/img/avatars/hobbit.png" alt="Avatar Hobbit" />
+    } @if (resultado === 'Elfo') {
+    <img src="/assets/img/avatars/elfo.png" alt="Avatar Elfo" />
+    } @if (resultado === 'GuerreroHumano') {
+    <img src="/assets/img/avatars/guerrero.png" alt="Avatar Guerrero Humano" />
+    } @if (resultado === 'Enano') {
+    <img src="/assets/img/avatars/enano.png" alt="Avatar Enano" />
+    } @if (resultado === 'Mago') {
+    <img src="/assets/img/avatars/mago.png" alt="Avatar Mago" />
+    }
+
+    <div class="desc">
+      @if (resultado === 'Hobbit') {
+      <p>
+        Los hobbits son criaturas pequeñas y pacíficas, amantes de la buena
+        comida, la tranquilidad y la naturaleza. Suelen evitar los conflictos,
+        pero tienen un gran corazón y una lealtad inquebrantable. Tu espíritu
+        alegre y curioso te convierte en el alma del grupo, siempre dispuesto a
+        compartir una historia o una tarta.
+      </p>
+      } @if (resultado === 'Elfo') {
+      <p>
+        Los elfos son seres elegantes, longevos y profundamente conectados con
+        la naturaleza. Sabios, equilibrados y precisos, prefieren la diplomacia
+        al combate, pero son letales si deben defender aquello que aman. Tu
+        armonía y respeto por el mundo natural te convierten en un guardián
+        silencioso y noble.
+      </p>
+      } @if (resultado === 'GuerreroHumano') {
+      <p>
+        Los guerreros humanos representan la valentía, el liderazgo y la
+        determinación. No temen al combate y luchan por ideales, protegiendo a
+        los suyos con honor y coraje. Tu fuerza interior y determinación
+        inspiran a quienes te rodean en cualquier aventura.
+      </p>
+      } @if (resultado === 'Enano') {
+      <p>
+        Los enanos son robustos, leales y trabajadores. Amantes de las minas, la
+        forja y la cerveza fuerte, destacan por su valentía en la batalla y su
+        fuerte sentido del honor. Tu perseverancia y fiereza te hacen un aliado
+        indestructible en el camino.
+      </p>
+      } @if (resultado === 'Mago') {
+      <p>
+        Los magos son estudiosos del mundo arcano, guardianes de conocimientos
+        olvidados y poderosos conjuradores. Solitarios y misteriosos, valoran la
+        sabiduría por encima de todo. Tu mente analítica y tu dominio de las
+        fuerzas mágicas te colocan como una figura enigmática y respetada.
+      </p>
+      }
+    </div>
+  </div>
+  }
+</div>

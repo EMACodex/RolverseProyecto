@@ -2,19 +2,41 @@
   <div class="personal-container">
     <h1>Perfil Personal</h1>
   </div>
+
   <div class="personal-content">
-    <div class="personal-image">
-    </div>
-    <div class="personal-info">
+    <div class="escudo-container">
       <div class="escudo">
-        <img src="assets/img/levels/level_1.png" alt="Rol" >
+        <img
+          [src]="'assets/img/levels/' + user.rank_image"
+          alt="Imagen de Rango"
+        />
       </div>
+    </div>
+
+    <div class="personal-info">
       <div class="personal-info-rol">
-        <h2>{{user.name}} | {{user.email}}</h2>
-        <hr>
+        <h2>{{ user.name }}</h2>
+        <hr />
+        <p>Rango: {{ user.rank_name }}</p>
+        <p>Experiencia: {{ user.points }}</p>
+        <p>Mensajes enviados: {{ user.message_count }}</p>
+        <p>Fecha de registro: {{ user.creation_date | date : "dd/MM/yyyy" }}</p>
       </div>
     </div>
   </div>
+  <div class="messages">
+    <h2>Mensajes Recientes</h2>
+    <div class="messages-list">
+      @for (message of lastMessages; track $index) {
+      <div class="message-item">
+        <p class="message-content">
+          {{ message.text }}
+        </p>
+        <p class="message-date">
+          {{ message.creation_date | date : "dd/MM/yyyy HH:mm" }}
+        </p>
+      </div>
+      }
+    </div>
+  </div>
 </div>
-
-

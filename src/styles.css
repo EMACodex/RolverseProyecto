@@ -2,37 +2,35 @@
    Fuentes importadas
    ======================== */
 
-
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
-
 
 /* ========================
    Variables de color
    ======================== */
 :root {
   /* Colores primarios */
-  --color-rojo-profund: #8B0000;
-  --color-rojo-gris:   #7F3A38;
-  --color-marron-tost:  #5A2D0C;
-  --color-verde-bos:    #2E4C2F;
+  --color-rojo-profund: #8b0000;
+  --color-rojo-gris: #7f3a38;
+  --color-marron-tost: #5a2d0c;
+  --color-verde-bos: #2e4c2f;
 
   /* Colores de acento */
-  --color-dorado:       #D4AF37;
-  --color-morado-real:  #6A1B9A;
+  --color-dorado: #d4af37;
+  --color-morado-real: #6a1b9a;
 
   /* Neutros / Fondos */
-  --color-pergamino:    #FFF8DC;
-  --color-negro-carb:   #000000;
-  --color-gris-piedra:  #E0D8C3;
+  --color-pergamino: #fff8dc;
+  --color-negro-carb: #000000;
+  --color-gris-piedra: #e0d8c3;
 
   /* Complementarios */
-  --color-celeste:      #87CEEB;
-  --color-salvia:       #A3B18A;
+  --color-celeste: #87ceeb;
+  --color-salvia: #a3b18a;
 }
 
 /* ========================
@@ -49,8 +47,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Cardo', serif;
-  background: url('/assets/img/scroll-parchment.jpg') no-repeat center center fixed;
+  font-family: "Cardo", serif;
+  background: url("/assets/img/scroll-parchment.jpg") no-repeat center center
+    fixed;
   background-size: cover;
   color: #3b1f0f;
 }
@@ -62,7 +61,7 @@ a {
   color: var(--color-dorado);
   text-decoration: none;
   font-weight: bold;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 a:hover {
   color: #fff;
@@ -72,8 +71,11 @@ a:hover {
 /* ========================
    Encabezados (h1-h4)
    ======================== */
-h1, h2, h3, h4 {
-  font-family: 'Uncial Antiqua', cursive;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Uncial Antiqua", cursive;
   color: var(--color-marron-tost);
   text-shadow: 1px 1px #ffe0a8;
   margin-bottom: 1rem;
@@ -102,7 +104,7 @@ button,
   padding: 10px 20px;
   border: 2px solid var(--color-dorado);
   border-radius: 10px;
-  font-family: 'MedievalSharp', serif;
+  font-family: "MedievalSharp", serif;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -110,7 +112,6 @@ button:hover,
 .btn-primary:hover {
   background: var(--color-rojo-gris);
   transform: scale(1.05);
-  box-shadow: 0 0 8px var(--color-dorado);
 }
 
 /* ========================
@@ -121,7 +122,7 @@ button:hover,
   color: var(--color-pergamino);
   border: 2px solid var(--color-verde-bos);
   border-radius: 6px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   padding: 8px 16px;
   transition: all 0.2s ease-in-out;
 }
@@ -147,7 +148,7 @@ button:hover,
 .sidebar {
   background-color: var(--color-marron-tost);
   color: var(--color-pergamino);
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 .sidebar a {
   display: block;
@@ -164,7 +165,7 @@ button:hover,
 input,
 textarea,
 select {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: var(--color-negro-carb);
   background-color: var(--color-pergamino);
   border: 1px solid var(--color-marron-tost);
@@ -181,7 +182,7 @@ select:focus {
    Títulos de sección (.section-title)
    ======================== */
 .section-title {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   color: var(--color-morado-real);
   font-size: 1.75rem;
   margin-bottom: 1rem;
@@ -193,7 +194,7 @@ select:focus {
    Tooltips personalizados (.tooltip-text)
    ======================== */
 .tooltip-text {
-  font-family: 'Uncial Antiqua', cursive;
+  font-family: "Uncial Antiqua", cursive;
   color: var(--color-verde-bos);
   background-color: var(--color-pergamino);
   border: 1px solid var(--color-marron-tost);
@@ -210,7 +211,7 @@ select:focus {
 footer {
   background-color: var(--color-marron-tost);
   color: var(--color-pergamino);
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-align: center;
   padding: 1rem;
 }
@@ -232,7 +233,7 @@ footer {
    Header específico
    ======================== */
 .header-container {
-  background-image: url('/assets/img/header.jpg');
+  background-image: url("/assets/img/header.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -244,7 +245,7 @@ footer {
 .home-background {
   display: block;
   min-height: 100vh;
-  background-image: url('/assets/img/fondo.jpg');
+  background-image: url("/assets/img/fondo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -252,7 +253,7 @@ footer {
   position: relative;
 }
 .home-background::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   /* 0.15 = muy leve; prueba valores entre 0.0 y 0.2 para algo casi transparente */
@@ -260,17 +261,41 @@ footer {
   pointer-events: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-::ng-deep .cdk-overlay-container, 
+::ng-deep .cdk-overlay-container,
 ::ng-deep .cdk-overlay-pane {
   z-index: 2000 !important; /* asegúrate de que va por encima */
   pointer-events: auto !important;
-.transparent-backdrop {
-  background: transparent !important;
+  .transparent-backdrop {
+    background: transparent !important;
+  }
 }
+
+/* ===== Layout app completo para “push footer” ===== */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El outlet ocupa todo el espacio salvo header y footer */
+router-outlet {
+  flex: 1;
 }

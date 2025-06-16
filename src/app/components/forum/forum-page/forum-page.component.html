@@ -3,9 +3,24 @@
     <h1>Concilio de Rol y Estrategia</h1>
     <h2>Foro</h2>
   </div>
+  @for (forum of allForums; track $index) {
+    <div class="forum-card" (click)="onForumClick(forum.id!)">
+      <h3>{{ forum.title }}</h3>
+      <p>{{ forum.description }}</p>
+      @if(userInfo.role == 'admin' ) {
+        <div class="forum-actions">
+          <button class="delete-forum" (click)="onDeleteForum(forum.id!); $event.stopPropagation()">
+            ✖ Eliminar
+          </button>
+        </div>
+      }
+    </div>
+  }
   @if(userInfo.role == 'admin') {
     <div class="admin-actions">
-      <button class="create-forum" (click)="openCreateForumDialog()">+</button>
+      <button class="create-forum" (click)="openCreateForumDialog()" title="Crear nuevo foro">
+        ✨
+      </button>
     </div>
   }
 </div>

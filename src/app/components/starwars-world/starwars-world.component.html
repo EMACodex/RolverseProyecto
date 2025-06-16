@@ -1,0 +1,28 @@
+<div class="dungeon-bg">
+  <h2 class="section-title">Mapas</h2>
+
+  <div class="grid-container">
+    @for (world of worlds; track world) {
+    <div class="thumb-container">
+      <img
+        [src]="world"
+        alt="Star Wars planeta"
+        class="thumb"
+        (click)="openModal(world)"
+      />
+      <a [href]="world" [download]="getFileName(world)" class="download-button">
+        Descargar Mapa de Planeta
+      </a>
+    </div>
+    } @if (selectedWorld) {
+    <div class="overlay" (click)="closeModal()">
+      <img
+        [src]="selectedWorld"
+        alt="Planeta ampliado"
+        class="modal-img"
+        (click)="$event.stopPropagation()"
+      />
+    </div>
+    }
+  </div>
+</div>

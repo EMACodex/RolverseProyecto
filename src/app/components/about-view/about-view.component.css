@@ -1,0 +1,101 @@
+:host {
+  display: block;
+  padding-top: 134px; /* altura del header + padding */
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 134px - 100px);
+  background: url("/assets/img/contacto.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Contenedor general ya centrado en HTML */
+.about-view-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Dos columnas: autor a la izquierda, reseñas a la derecha */
+.columns {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Tarjeta del autor */
+.author-card {
+  flex: 0 0 300px;
+  background: var(--color-pergamino);
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Imagen del autor */
+.author-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.author-card h2 {
+  margin: 0.5rem 0;
+  font-family: "Uncial Antiqua", cursive;
+}
+
+.author-card p {
+  font-family: "Cardo", serif;
+  line-height: 1.5;
+}
+
+/* Lista de reseñas */
+.reviews-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Cada tarjeta de reseña */
+.review-card {
+  display: flex;
+  background: var(--color-pergamino);
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Imagen de reseña */
+.review-img {
+  width: 150px;
+  object-fit: cover;
+}
+
+/* Contenido de reseña */
+.review-content {
+  padding: 1rem;
+}
+
+.review-content h4 {
+  margin: 0 0 0.5rem;
+  font-family: "Uncial Antiqua", cursive;
+}
+
+.review-content p {
+  font-family: "Cardo", serif;
+  line-height: 1.4;
+}
+
+.review-content a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color-dorado);
+  text-decoration: none;
+}
+
+.review-content a:hover {
+  text-decoration: underline;
+}

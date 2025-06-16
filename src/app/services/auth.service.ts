@@ -57,8 +57,21 @@ export class AuthService {
 
   isAdmin(): boolean {
     const user = this.getCurrentUser();
-    return user?.roles.includes('admin') ?? false;
+
+    // Soporta ambos formatos: 'role' string o 'roles' array
+    if (!user) return false;
+
+    if ('roles' in user && Array.isArray(user.roles)) {
+      return user.roles.includes('admin');
+    }
+
+    if ('role' in user && typeof user.role === 'string') {
+      return user.role === 'admin';
+    }
+
+    return false;
   }
+
 
 
   getTokenData(): Observable<tokenData> {

@@ -1,0 +1,154 @@
+/* view-news.component.css */
+
+/* Contenedor principal */
+.container {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-top: 1px solid transparent;
+  padding-top: 160px;
+  padding-bottom: 0px;
+  min-height: calc(100vh - 300px - 0px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* --- Detalle de la noticia --- */
+.news-detail {
+  max-width: 800px;
+  width: 100%;
+  background: var(--color-pergamino);
+  border: 4px double var(--color-marron-tost);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+}
+
+/* --- Error y Loading --- */
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* Título */
+.news-title {
+  font-family: "Uncial Antiqua", cursive;
+  color: var(--color-marron-tost);
+  font-size: 2rem;
+  text-shadow: 1px 1px #ffe0a8;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Autor y fecha */
+.news-meta {
+  font-family: "Lato", sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-marron-tost);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Imagen destacada */
+.news-image-detail {
+  border: none !important;
+  box-shadow: none !important;
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  border: 3px double var(--color-marron-tost);
+  border-radius: 8px;
+}
+
+/* Contenido completo (HTML) */
+.news-content-full {
+  font-family: "Cardo", serif;
+  font-size: 1rem;
+  color: #3b1f0f;
+  line-height: 1.6;
+  margin-top: 2rem;
+}
+
+/* Asegura que los enlaces internos al contenido mantengan el estilo */
+.news-content-full a {
+  color: var(--color-dorado);
+  text-decoration: none;
+}
+.news-content-full a:hover {
+  text-shadow: 0 0 5px var(--color-dorado);
+}
+
+/* ===== Fondo propio para la vista de noticia ===== */
+:host {
+  display: block; /* para que ocupe todo el ancho */
+  background-image: url("/assets/img/news.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* si quieres que no se mueva al hacer scroll */
+}
+
+.news-comments-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed var(--color-marron-tost);
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.comment-form textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: "Cardo", serif;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--color-marron-tost);
+}
+
+.comment-form button {
+  align-self: flex-end;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-marron-tost);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #5a2d0c;
+}
+
+.comment {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 1rem;
+  border-left: 4px solid var(--color-marron-tost);
+  border-radius: 4px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+}
+
+.delete-btn:hover {
+  text-decoration: underline;
+}

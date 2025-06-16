@@ -1,0 +1,13 @@
+<div class="about-container">
+  <div class="cards-container">
+    @for (person of people; track person.name) {
+    <div class="about-card">
+      <a [routerLink]="['/author', person.name]" class="card-link">
+        <img [src]="person.img" alt="{{ person.name }}" class="card-img" />
+        <h3>{{ person.name }}</h3>
+      </a>
+      <p>{{ person.desc }}</p>
+    </div>
+    }
+  </div>
+</div>

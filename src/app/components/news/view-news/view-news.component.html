@@ -1,0 +1,67 @@
+<div class="container">
+  @if (loading) {
+  <p>Cargando noticia…</p>
+  } @else if (error) {
+  <p class="error">{{ error }}</p>
+  } @else if (news) {
+  <div class="news-detail card">
+    <h2 class="news-title">{{ news.title }}</h2>
+    <div class="news-meta">
+      {{ news.author }} – {{ news.created_at | date : "longDate" }}
+    </div>
+
+    @if (news.image_path) {
+    <img
+      [src]="'http://localhost:3000' + news.image_path"
+      alt="{{ news.title }}"
+      class="news-image-detail"
+    />
+    }
+
+    <!-- Asume que content es HTML -->
+    <div class="news-content-full" [innerHTML]="news.content"></div>
+
+    <!-- Campo para añadir un comentario -->
+    <div class="news-comments-section">
+      <h3>Reseñas</h3>
+
+      @if (isAuthenticated) {
+      <form
+        (ngSubmit)="submitComment()"
+        #commentForm="ngForm"
+        class="comment-form"
+      >
+        <textarea
+          name="comment"
+          [(ngModel)]="newComment"
+          placeholder="Escribe tu reseña aquí..."
+          required
+        ></textarea>
+        <button type="submit" [disabled]="!newComment">
+          Publicar comentario
+        </button>
+      </form>
+      } @else {
+      <p>Inicia sesión para dejar tu reseña.</p>
+      }
+
+      <!-- Lista de comentarios -->
+      @for (c of comments; track $index) {
+      <div class="comment">
+        <div class="comment-header">
+          <strong>{{ c.author }}</strong> –
+          {{ c.created_at | date : "mediumDate" }}
+
+          @if (isAdmin) {
+          <button (click)="deleteComment(c.id)" class="delete-btn">
+            Eliminar
+          </button>
+          }
+        </div>
+        <p>{{ c.comment }}</p>
+      </div>
+      }
+    </div>
+  </div>
+  }
+</div>
