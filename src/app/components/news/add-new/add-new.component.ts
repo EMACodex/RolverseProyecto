@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environment.prod';
 import { jwtDecode } from 'jwt-decode';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -101,7 +101,7 @@ export class AddNewComponent implements OnInit {
     // 4) Incluye los headers en la llamada
     try {
       await this.http
-        .post(`${RUTA_API}news`, formData, { headers })
+        .post(`${environment.apiUrl}news`, formData, { headers })
         .toPromise();
 
       alert('Noticia publicada correctamente');

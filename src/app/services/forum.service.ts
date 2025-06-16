@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
-import { RUTA_API } from '../../environment';
+import { environment } from '../../environment.prod';
 import { HttpClient } from '@angular/common/http';
-import { deleteForumResponse, ForumInterface, getForumResponse, getForumsResponse } from '../interfaces/forum.interface';
+import {
+  deleteForumResponse,
+  ForumInterface,
+  getForumResponse,
+  getForumsResponse,
+} from '../interfaces/forum.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ForumService {
+  private apiURL = `${environment.apiUrl}forum`;
 
-  private apiURL = `${RUTA_API}forum`;
-
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) {}
 
   getAllForums(): Observable<getForumsResponse> {
     return this.http.get<getForumsResponse>(`${this.apiURL}/all`);
   }
 
-  getForumById(id: number): Observable<getForumResponse>{
+  getForumById(id: number): Observable<getForumResponse> {
     return this.http.get<getForumResponse>(`${this.apiURL}/${id}`);
   }
 

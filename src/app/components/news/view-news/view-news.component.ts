@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { InternalNews } from '../../../interfaces/new.interface';
-import { RUTA_API } from '../../../../environment';
+import { environment } from '../../../../environment.prod';
 
 @Component({
   selector: 'app-view-news',
@@ -35,7 +35,7 @@ export class ViewNewsComponent implements OnInit {
 
     try {
       this.news = await firstValueFrom(
-        this.http.get<InternalNews>(`${RUTA_API}news/${id}`)
+        this.http.get<InternalNews>(`${environment.apiUrl}news/${id}`)
       );
       await this.loadComments();
       this.isAuthenticated = !!localStorage.getItem('token');
@@ -63,7 +63,7 @@ export class ViewNewsComponent implements OnInit {
     try {
       await firstValueFrom(
         this.http.post(
-          `${RUTA_API}news/${id}/comments`,
+          `${environment.apiUrl}news/${id}/comments`,
           { comment: this.newComment.trim() },
           {
             headers: {
@@ -84,7 +84,7 @@ export class ViewNewsComponent implements OnInit {
 
     try {
       const result = await firstValueFrom(
-        this.http.get<any[]>(`${RUTA_API}news/${id}/comments`)
+        this.http.get<any[]>(`${environment.apiUrl}news/${id}/comments`)
       );
       this.comments = result;
     } catch (err) {
@@ -97,7 +97,7 @@ export class ViewNewsComponent implements OnInit {
 
     try {
       await firstValueFrom(
-        this.http.delete(`${RUTA_API}news/comments/${commentId}`, {
+        this.http.delete(`${environment.apiUrl}news/comments/${commentId}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token') || ''}`,
           },

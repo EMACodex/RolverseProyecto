@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InternalNews } from '../../interfaces/new.interface';
-import { RUTA_API } from '../../../environment';
+import { environment } from '../../../environment.prod';
 import { firstValueFrom } from 'rxjs';
 import { Router, RouterModule } from '@angular/router';
 
@@ -60,7 +60,7 @@ export class NewsComponent implements OnInit {
   async fetchAllNews(): Promise<void> {
     try {
       const internalPosts = await firstValueFrom(
-        this.http.get<InternalNews[]>(`${RUTA_API}news`)
+        this.http.get<InternalNews[]>(`${environment.apiUrl}news`)
       );
 
       // — Aquí asignamos summary dinámico —
@@ -101,9 +101,12 @@ export class NewsComponent implements OnInit {
 
       // Llama al DELETE pasando headers
       await firstValueFrom(
-        this.http.delete<{ message: string }>(`${RUTA_API}news/${id}`, {
-          headers,
-        })
+        this.http.delete<{ message: string }>(
+          `${environment.apiUrl}news/${id}`,
+          {
+            headers,
+          }
+        )
       );
       this.router.navigate(['/']);
 

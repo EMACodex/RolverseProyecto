@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { RUTA_API } from '../../../environment';
+import { environment } from '../../../environment.prod';
 import { Person } from '../../interfaces/about.interface';
 import { NewsItem } from '../../interfaces/about.interface';
 
@@ -49,7 +49,7 @@ export class AboutViewComponent implements OnInit {
     try {
       // 3) se trae todas las noticias
       const all: NewsItem[] = await firstValueFrom(
-        this.http.get<NewsItem[]>(`${RUTA_API}news`)
+        this.http.get<NewsItem[]>(`${environment.apiUrl}news`)
       );
 
       // 4) Generar un “target” que solo sea la primera palabra del nombre
